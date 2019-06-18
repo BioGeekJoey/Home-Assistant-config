@@ -1,20 +1,10 @@
+################################################################################
+# Home Assistant Configuration
+################################################################################
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
+customize: !include customize.yaml
 
-# Sensors
-sensor:
-  # Weather prediction
-  - platform: yr
-
-# Text to speech
-tts:
-  - platform: google_translate
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+packages: !include_dir_named packages
