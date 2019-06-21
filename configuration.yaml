@@ -2,7 +2,9 @@
 # Home Assistant Configuration
 ################################################################################
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
+homeassistant:
+  name: Thuis
+
 default_config:
 
 customize: !include customize.yaml

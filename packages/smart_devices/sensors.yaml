@@ -1,0 +1,20 @@
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: memory_use_percent
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m
+      - type: ipv4_address
+        arg: eth0
+      - type: processor_use
+      - type: last_boot
+
+  - platform: travisci
+    api_key: !secret travissensortoken
+
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload

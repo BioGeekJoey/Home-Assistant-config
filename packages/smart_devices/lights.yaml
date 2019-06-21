@@ -1,0 +1,35 @@
+light:
+  - platform: rflink
+    devices:
+      ab400d_4b_1:
+        name: "openhaard"
+
+      ab400d_4b_2:
+        name: "trap woonkamer"
+
+      newkaku_0174cb3e_3:
+        name: "zolder"
+        
+      unitec_c232_01:
+        name: "veranda"
+
+  - platform: mqtt
+    name: "spotjes washok"
+    state_topic: "shellies/shelly1-2285F5/relay/0"
+    command_topic: "shellies/shelly1-2285F5/relay/0/command"
+    payload_on: "on"
+    payload_off: "off"
+    # availability_topic: "shellies/shelly1-2285f5/online"
+    # payload_available: "true"
+    # payload_not_available: "false"
+    # retain: false
+
+  - platform: mqtt
+    name: "spotjes zolder"
+    state_topic: "shellies/shelly1-227968/relay/0"
+    command_topic: "shellies/shelly1-227968/relay/0/command"
+    payload_on: "on"
+    payload_off: "off"
+    # availability_topic: "shellies/shelly1-227968/online"
+    # payload_available: "true"
+    # payload_not_available: "false"

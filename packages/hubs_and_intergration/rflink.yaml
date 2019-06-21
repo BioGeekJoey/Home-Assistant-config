@@ -1,0 +1,24 @@
+rflink:
+  port: /dev/ttyACM0
+  ignore_devices:
+  - newkaku_00bb8f36*
+  - tristate_088aaa*
+  - bft_1003c*
+  - doorbell_00011c4e*
+  - brelmotor_2f00ab*
+  - chuango_5d80*
+  - chuango_0696*
+  - chuango_bc6f*
+  - selectplus_034b*
+
+light:
+  - platform: rflink
+    automatic_add: true
+    device_defaults:
+    signal_repetitions: 3
+
+sensor:
+  - platform: rflink
+    automatic_add: true
+
+discovery:

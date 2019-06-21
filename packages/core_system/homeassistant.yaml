@@ -1,0 +1,23 @@
+homeassistant:
+  latitude: !secret lat
+  longitude: !secret long
+  elevation: 17
+  unit_system: metric
+  time_zone: CET
+  customize: !include customize.yaml
+
+frontend:
+  extra_html_url:
+    - /local/icons/hass-fontawesome-solid.html
+    - /local/icons/hass-fontawesome-brands.html
+  themes: !include_dir_merge_named ../themes/
+
+http:
+  base_url: !secret base_url
+  # ip_ban_enabled:  true
+  # login_attempts_threshold: 5
+
+tts:
+  - platform: google
+    language: 'nl'
+    base_url: http://192.168.178.252:8123
