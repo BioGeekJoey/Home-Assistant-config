@@ -4,12 +4,12 @@ homeassistant:
   elevation: 17
   unit_system: metric
   time_zone: CET
-  customize: !include customize.yaml
+#  customize: !include customize.yaml
 
 frontend:
-  extra_html_url:
-    - /local/icons/hass-fontawesome-solid.html
-    - /local/icons/hass-fontawesome-brands.html
+#  extra_html_url:
+#    - /local/icons/hass-fontawesome-solid.html
+#    - /local/icons/hass-fontawesome-brands.html
   themes: !include_dir_merge_named ../themes/
 
 http:
@@ -18,6 +18,6 @@ http:
   # login_attempts_threshold: 5
 
 tts:
-  - platform: google
+  - platform: google_translate
     language: 'nl'
     base_url: http://192.168.178.252:8123

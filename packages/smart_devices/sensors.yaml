@@ -13,8 +13,8 @@ sensor:
   - platform: travisci
     api_key: !secret travissensortoken
 
-  - platform: speedtest
-    monitored_conditions:
-      - ping
-      - download
-      - upload
+#   - platform: speedtest
+#     monitored_conditions:
+#       - ping
+#       - download
+#       - upload

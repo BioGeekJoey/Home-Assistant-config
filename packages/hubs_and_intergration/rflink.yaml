@@ -14,7 +14,7 @@ rflink:
 light:
   - platform: rflink
     automatic_add: true
-    device_defaults:
+#    device_defaults:
     signal_repetitions: 3
 
 sensor:

@@ -14,11 +14,11 @@ sensor:
       - gasused
       - gasusedcnt
       - elecusageflowpulse
-      - elecusagecntpulse
-      # - elecusageflowlow
-      - elecusagecntlow
-      # - elecusageflowhigh
-      - elecusagecnthigh
+      # - elecusagecntpulse
+      - elecusageflowlow
+      # - elecusagecntlow
+      - elecusageflowhigh
+      # - elecusagecnthigh
       # - elecprodflowlow
       # - elecprodcntlow
       # - elecprodflowhigh
@@ -35,7 +35,7 @@ sensor:
       - boilersetpoint
       - boilerintemp
       - boilerouttemp
-      - boilerpressure
+      # - boilerpressure
       - boilermodulationlevel
       - roomtemp
       - roomtempsetpoint

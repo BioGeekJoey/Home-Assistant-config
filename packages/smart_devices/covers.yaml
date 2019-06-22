@@ -1,0 +1,7 @@
+cover:
+  - platform: rflink
+    devices:
+      RTS_02FF00_3: 
+        name: 'Garage deur'
+        aliases:
+          - RTS_F11428_01
