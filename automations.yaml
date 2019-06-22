@@ -1,1 +1,11 @@
-[]
+- id: '1561220695968'
+  alias: Verlichting veranda garage
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - alias: ''
+    data:
+      entity_id: light.veranda
+    service: light.turn_on

@@ -2,11 +2,12 @@
 # Home Assistant Configuration
 ################################################################################
 
-homeassistant:
-  name: Thuis
+#homeassistant:
+#  name: Thuis
 
 default_config:
 
-customize: !include customize.yaml
+#customize: !include customize.yaml
 
-packages: !include_dir_named packages
+homeassistant:
+  packages: !include_dir_named packages
