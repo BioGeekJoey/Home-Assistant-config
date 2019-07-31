@@ -1,6 +1,6 @@
 climate:
   - platform: toon_climate
-    name: Toon Thermostat
+    name: Toon thermostaat
     host: !secret toon
     port: 10080
     scan_interval: 30
