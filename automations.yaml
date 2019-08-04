@@ -7,7 +7,9 @@
   action:
   - alias: ''
     data:
-      entity_id: light.veranda
+      entity_id:
+      - light.veranda_garage
+      - light.carport
     service: light.turn_on
 - id: '1564754408874'
   alias: Verlichting; uit; veranda garage carport
@@ -17,5 +19,7 @@
   condition: []
   action:
   - data:
-      entity_id: light.veranda
+      entity_id:
+      - light.veranda_garage
+      - light.carport
     service: light.turn_off

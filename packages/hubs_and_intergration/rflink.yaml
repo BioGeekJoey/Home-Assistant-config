@@ -11,11 +11,21 @@ rflink:
   - chuango_bc6f*
   - selectplus_034b*
 
+switch:
+  - platform: rflink
+    device_defaults:
+      signal_repetitions: 3
+
 light:
   - platform: rflink
     automatic_add: true
-#    device_defaults:
-    signal_repetitions: 3
+    device_defaults:
+      signal_repetitions: 3
+
+cover:
+  - platform: rflink
+    device_defaults:
+      signal_repetitions: 3
 
 sensor:
   - platform: rflink
