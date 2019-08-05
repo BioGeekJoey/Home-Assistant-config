@@ -1,41 +1,41 @@
-# climate:
-#   - platform: toon_climate
-#     name: Toon thermostaat
-#     host: !secret toon
-#     port: 10080
-#     scan_interval: 30
+climate:
+  - platform: toon_climate
+    name: Toon thermostaat
+    host: !secret toon
+    port: 10080
+    scan_interval: 30
 
-# sensor:
-#   - platform: toon_smartmeter
-#     host: !secret toon
-#     port: 10080
-#     scan_interval: 30
-#     resources:
-#       - gasused
-#       - gasusedcnt
-#       - elecusageflowpulse
-#       # - elecusagecntpulse
-#       - elecusageflowlow
-#       # - elecusagecntlow
-#       - elecusageflowhigh
-#       # - elecusagecnthigh
-#       # - elecprodflowlow
-#       # - elecprodcntlow
-#       # - elecprodflowhigh
-#       # - elecprodcnthigh
-#       # - elecsolar
-#       # - elecsolarcnt
-#       # - heat
+sensor:
+  - platform: toon_smartmeter
+    host: !secret toon
+    port: 10080
+    scan_interval: 30
+    resources:
+      - gasused
+      - gasusedcnt
+      - elecusageflowpulse
+      # - elecusagecntpulse
+      - elecusageflowlow
+      # - elecusagecntlow
+      - elecusageflowhigh
+      # - elecusagecnthigh
+      # - elecprodflowlow
+      # - elecprodcntlow
+      # - elecprodflowhigh
+      # - elecprodcnthigh
+      # - elecsolar
+      # - elecsolarcnt
+      # - heat
 
-#   - platform: toon_boilerstatus
-#     host: !secret toon
-#     port: 10080
-#     scan_interval: 30
-#     resources:
-#       - boilersetpoint
-#       - boilerintemp
-#       - boilerouttemp
-#       # - boilerpressure
-#       - boilermodulationlevel
-#       - roomtemp
-#       - roomtempsetpoint
+  - platform: toon_boilerstatus
+    host: !secret toon
+    port: 10080
+    scan_interval: 30
+    resources:
+      - boilersetpoint
+      - boilerintemp
+      - boilerouttemp
+      # - boilerpressure
+      - boilermodulationlevel
+      - roomtemp
+      - roomtempsetpoint
