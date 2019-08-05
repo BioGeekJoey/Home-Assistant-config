@@ -1,3 +1,0 @@
-[submodule "custom_components"]
-	path = custom_components
-	url = https://github.com/BioGeekJoey/home-assistant-custom-components.git
