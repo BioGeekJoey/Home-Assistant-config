@@ -6,4 +6,4 @@ zone:
   - name: stadhuis
     latitude: 51.979300
     longitude: 5.911894
-    radius: 300
+    radius: 200

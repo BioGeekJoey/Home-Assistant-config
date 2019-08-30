@@ -2,8 +2,6 @@ device_tracker:
   - platform: upc_connect
     host: !secret connectbox
   
-  - platform: bluetooth_tracker
-    
 owntracks:
   max_gps_accuracy: 1000
   waypoints: false

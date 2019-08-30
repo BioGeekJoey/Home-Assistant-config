@@ -1,6 +1,7 @@
 switch:
   - platform: rflink
     devices:
+
       ab400d_4b_3:
         name: "jukebox"
 
@@ -19,8 +20,8 @@ switch:
 
       newkaku_01e01e46_1:
         name: "creality ender-3 pro"
-      
+
       newkaku_01e01e46_2:
         name: "tevo tarantula pro"
-      
+
       # newkaku_01e01e46_3:
