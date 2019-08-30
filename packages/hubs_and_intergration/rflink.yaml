@@ -1,5 +1,5 @@
 rflink:
-  port: /dev/ttyACM0
+  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__USBDevice_85633323530351C0E162-if00
   ignore_devices:
   - newkaku_00bb8f36*
   - tristate_088aaa*
