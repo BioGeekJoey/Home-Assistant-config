@@ -8,13 +8,10 @@ light:
         name: "trap woonkamer"
 
       newkaku_0174cb3e_3:
-        name: "zolder"
+        name: "carport"
         
       unitec_c232_01:
         name: "veranda & garage"
-
-      newkaku_0174cb3e_2:
-        name: "carport"
 
   - platform: mqtt
     name: "spotjes washok"
