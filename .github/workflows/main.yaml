@@ -7,6 +7,6 @@ jobs:
     name: Validate with current stable release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@${GITHUB_SHA}
-    - name: using stable release
+    - uses: actions/checkout@master
+    - name: Validate config with current stable release
       uses: ./.actions
