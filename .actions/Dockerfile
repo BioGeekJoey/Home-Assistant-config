@@ -1,4 +1,4 @@
-FROM xenial:latest
+FROM alpine:latest
 
 LABEL "com.github.actions.name"="Home Assistant config validation"
 LABEL "com.github.actions.description"="Test a Home Assistant config against the latest version of HA"
