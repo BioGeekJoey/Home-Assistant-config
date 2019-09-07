@@ -9,7 +9,7 @@
     data:
       entity_id:
       - light.veranda_garage
-      - light.carport
+      - light.carport_en_co
     service: light.turn_on
 - id: '1564754408874'
   alias: Verlichting; uit; veranda garage carport
@@ -21,5 +21,5 @@
   - data:
       entity_id:
       - light.veranda_garage
-      - light.carport
+      - light.carport_en_co
     service: light.turn_off

@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+python:
+  - "3.7.3"
+  - "3.6.4"
+
+env:
+  - HASS='homeassistant'
+  - HASS='--pre homeassistant'
+
+before_install:
+  - mv .travis/travis_secrets.yaml secrets.yaml
+  - touch home-assistant_v2.db
+  - touch home-assistant.log
+  - HA_VERSION=$(<.HA_VERSION)
+
+install:
+  - pip3 install $HASS
+  - pip3 install colorlog
+
+script:
+  - hass -c . --script check_config --info all
