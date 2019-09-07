@@ -1,9 +1,11 @@
 dist: xenial:latest
+
 language: python
+
 python:
+  - "latest"
   - "3.7.4"
   - "3.5.5"
-  - "2.7.16"
 
 env:
   - HASS='homeassistant'
@@ -11,6 +13,7 @@ env:
   
 matrix:
   allow_failures: 
+    - python: "latest"
     - env: HASS='--pre homeassistant'
 
 before_install:
