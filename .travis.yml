@@ -1,12 +1,16 @@
-dist: xenial
+dist: xenial:latest
 language: python
 python:
-  - "3.7"
-  - "2.6"
+  - "3.x"
+  - "2.7"
 
 env:
   - HASS='homeassistant'
-  - HASS='--pre homeassistant'
+  - HASS='--pre homeassistant
+  
+matrix:
+  allow_failures: 
+    - env: HASS='--pre homeassistant
 
 before_install:
   - mv .travis/travis_secrets.yaml secrets.yaml

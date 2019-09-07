@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM xenial:latest
 
 LABEL "com.github.actions.name"="Home Assistant config validation"
 LABEL "com.github.actions.description"="Test a Home Assistant config against the latest version of HA"
@@ -10,7 +10,7 @@ LABEL "maintainer"="BioGeekJoey <joeyjoel95@gmail.com>"
 
 LABEL "version"="0.1.0"
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+ADD entrypoint.sh .actions/entrypoint.sh
+RUN chmod +x .actions/entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT [".actions/entrypoint.sh"]
