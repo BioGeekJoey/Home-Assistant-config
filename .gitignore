@@ -28,3 +28,6 @@ home-assistant.log
 __pycache__/
 
 notebooks/
+
+#exceptions
+!/.actions/*

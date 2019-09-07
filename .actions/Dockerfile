@@ -10,7 +10,7 @@ LABEL "maintainer"="BioGeekJoey <joeyjoel95@gmail.com>"
 
 LABEL "version"="0.1.0"
 
-ADD entrypoint.sh .actions/entrypoint.sh
+ADD entrypoint.sh ./entrypoint.sh
 RUN chmod +x .actions/entrypoint.sh
 
-ENTRYPOINT [".actions/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
