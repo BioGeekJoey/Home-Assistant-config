@@ -1,0 +1,12 @@
+name: Validate Home Assistant config
+
+on: push
+
+jobs: 
+  validate_config:
+    name: Validate with current stable release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@${GITHUB_SHA}
+    - name: using stable release
+      uses: ./.actions
