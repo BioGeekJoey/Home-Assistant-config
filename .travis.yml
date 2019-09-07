@@ -1,8 +1,8 @@
 dist: xenial
 language: python
 python:
-  - "3.7.3"
-  - "3.6.4"
+  - "3.7"
+  - "2.6"
 
 env:
   - HASS='homeassistant'

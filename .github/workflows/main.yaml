@@ -7,6 +7,10 @@ jobs:
     name: Validate with current stable release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '2.x'
+        architecture: 'x64'
     - name: Validate config with current stable release
       uses: ./.actions
