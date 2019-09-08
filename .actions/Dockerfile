@@ -13,7 +13,7 @@ LABEL "version"="0.1.0"
 ADD entrypoint.sh ./entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-RUN  echo installing Home Assistant \
-          python3 -m pip install homeassistant
+RUN  echo installing Home Assistant
+RUN python3 -m pip install homeassistant
 
 ENTRYPOINT ["/entrypoint.sh"]
