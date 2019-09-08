@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
       with:
-        python-version: '2.x'
+        python-version: '3.7'
         architecture: 'x64'
     - name: Validate config with current stable release
       uses: ./.actions

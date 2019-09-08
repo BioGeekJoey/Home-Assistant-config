@@ -3,9 +3,7 @@ dist: xenial:latest
 language: python
 
 python:
-  - "latest"
-  - "3.7.4"
-  - "3.5.5"
+  - "3.7"
 
 env:
   - HASS='homeassistant'
