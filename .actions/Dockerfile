@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:18.04
 
 LABEL "com.github.actions.name"="Home Assistant config validation"
 LABEL "com.github.actions.description"="Test a Home Assistant config against the latest version of HA"
@@ -13,6 +13,7 @@ LABEL "version"="0.1.0"
 ADD entrypoint.sh ./entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-RUN 'echo installing Home Assistant; python3 -m pip install homeassistant'
+RUN  echo installing Home Assistant \
+          python3 -m pip install homeassistant
 
 ENTRYPOINT ["/entrypoint.sh"]
