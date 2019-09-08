@@ -10,6 +10,9 @@ LABEL "maintainer"="BioGeekJoey <joeyjoel95@gmail.com>"
 
 LABEL "version"="0.1.0"
 
+RUN "echo Installing Home Assistant"
+RUN "python3 -m pip install homeassistant"
+
 ADD entrypoint.sh ./entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
