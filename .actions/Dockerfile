@@ -13,4 +13,4 @@ LABEL "version"="0.1.0"
 RUN echo installing Home Assistant
 RUN python3 -m pip install homeassistant
 
-CMD [ "hass", "-c .", "--script check_config", "--info all" ]
+CMD [ "hass", "--script", "check_config", "-c", "." ]
