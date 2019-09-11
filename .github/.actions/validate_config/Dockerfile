@@ -18,5 +18,6 @@ RUN python3 -m pip install homeassistant && echo installing Home Assistant
 WORKDIR /root/.homeassistant
 
 COPY . .
+COPY .secrets/redactedsecrets.yaml secrets.yaml
 
 ENTRYPOINT [ "sh", "entrypoint.sh" ]

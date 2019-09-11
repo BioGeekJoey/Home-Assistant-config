@@ -1,0 +1,8 @@
+secrets.yaml
+
+.gitattributes
+.gitignore
+.travis.yml
+
+.vscode
+esphomeyaml
