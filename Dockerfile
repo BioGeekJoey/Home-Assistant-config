@@ -1,4 +1,5 @@
-FROM python:3
+ARG VERSION=latest
+FROM homeassistant/home-assistant:${VERSION}
 
 LABEL "com.github.actions.name"="Home Assistant config validation"
 LABEL "com.github.actions.description"="Test a Home Assistant config against the latest version of HA"
@@ -10,9 +11,12 @@ LABEL "maintainer"="BioGeekJoey <joeyjoel95@gmail.com>"
 
 LABEL "version"="0.1.0"
 
-RUN echo installing Home Assistant
-RUN python3 -m pip install homeassistant
+WORKDIR /
 
-ADD .secrets/redactedsecrets.yaml secrets.yaml
+RUN python3 -m pip install homeassistant && echo installing Home Assistant
 
-CMD [ "hass", "--script", "check_config", "-c", "." ]
+WORKDIR /root/.homeassistant
+
+COPY . .
+
+ENTRYPOINT [ "sh", "entrypoint.sh" ]
