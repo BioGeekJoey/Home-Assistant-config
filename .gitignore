@@ -12,6 +12,8 @@ ip_bans.yaml
 known_devices.yaml
 secrets.yaml
 
+Dockerfile
+
 *.db-journal
 *.pid
 tts
@@ -29,5 +31,5 @@ __pycache__/
 
 notebooks/
 
-#exceptions
-!/.actions/*
+#CI/CD
+!/.github
