@@ -28,8 +28,4 @@ home-assistant.log
 
 #custom_components/
 __pycache__/
-
 notebooks/
-
-#CI/CD
-!/.github
