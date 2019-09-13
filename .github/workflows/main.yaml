@@ -9,5 +9,7 @@ jobs:
     steps:
     - name: Cloning config to testing environment
       uses: actions/checkout@v1
-    - name: Validate config with current stable release
-      uses: ./.github/.actions/validate_config
+    - name: Home Assistant Configuration Check
+      uses: ludeeus/action-ha-config-check@0.0.1
+      env:
+        ACTION_VERSION: stable
