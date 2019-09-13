@@ -7,9 +7,9 @@ This repository serves mainly as a backup of my config file in case everything g
 
 # Hardware running Home Assistant [![uptime tracker][uptimerobot-shield]][uptimerobot] [![uptime percent icon by Smashicons via Flaticon CC3.0 https://www.flaticon.com/authors/smashicons][uptimerobot30-shield]][uptimerobot]
 
- __Raspberry Pi3__ running Hassio on HassOS. It is passively cooled by it's [aluminium case][rpicase] and some regular aftermarket CPU thermal compound.
+ __Synology DS718+ NAS__ running the latest release of DSM. Takes care of dynamic DNS, SSL certificate, access via reverse proxy. Runs HassIO using Docker. 
 
- __Synology DS718+ NAS__ running the latest release of DSM. Takes care of dynamic DNS, SSL certificate, access via reverse proxy. Trying to set up daily snapshot backup, not managed to find a straight forward way to do this.
+ __Retired Raspberry Pi3__ used to be running HassIO on HassOS. It is passively cooled by it's [aluminium case][rpicase] and some regular aftermarket CPU thermal compound.
 
 ## Resources used
 
