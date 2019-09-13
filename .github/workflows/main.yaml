@@ -9,7 +9,9 @@ jobs:
     steps:
     - name: Cloning config to testing environment
       uses: actions/checkout@v1
-    - name: Home Assistant Configuration Check
-      uses: ludeeus/action-ha-config-check@0.0.1
+    - name: Run Home Assistant in Docker
       env:
-        ACTION_VERSION: stable
+        VERSION: latest
+      run: docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /$GITHUB_WORKSPACE:/config --net=host homeassistant/home-assistant:$VERSION
+    - name: Check config
+      run: hass --script check_config --info all
