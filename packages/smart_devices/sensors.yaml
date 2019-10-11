@@ -12,6 +12,9 @@ sensor:
 
   - platform: moon
 
+  - platform: airvisual
+    api_key: !secret airvisual_api_key
+
 #   - platform: speedtest
 #     monitored_conditions:
 #       - ping
