@@ -1,0 +1,3 @@
+sensor:
+  - platform: travisci
+    api_key: !secret travissensortoken
