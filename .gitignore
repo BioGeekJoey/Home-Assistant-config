@@ -23,6 +23,7 @@ lib
 www
 .storage
 .cloud
+.Trash*
 
 home-assistant.log
 
