@@ -10,6 +10,8 @@ sensor:
       - type: processor_use
       - type: last_boot
 
+  - platform: moon
+
 #   - platform: speedtest
 #     monitored_conditions:
 #       - ping
