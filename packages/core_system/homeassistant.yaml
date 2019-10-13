@@ -7,10 +7,7 @@ homeassistant:
 #  customize: !include customize.yaml
 
 frontend:
-#  extra_html_url:
-#    - /local/icons/hass-fontawesome-solid.html
-#    - /local/icons/hass-fontawesome-brands.html
-  themes: !include_dir_merge_named ../themes/
+  themes: !include_dir_merge_named ../../themes/
 
 http:
   base_url: !secret base_url
@@ -20,4 +17,4 @@ http:
 tts:
   - platform: google_translate
     language: 'nl'
-    base_url: http://192.168.178.252:8123
+    base_url: !secret base_url
