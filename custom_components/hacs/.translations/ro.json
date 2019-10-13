@@ -1,0 +1,65 @@
+{
+    "common": {
+        "appdaemon_apps": "Aplicații AppDaemon",
+        "installed": "instalat",
+        "integration": "Integrare",
+        "integrations": "Integrări",
+        "plugin": "Plugin",
+        "plugins": "Plugin-uri",
+        "python_script": "Script Python",
+        "python_scripts": "Scripturi Python",
+        "settings": "setări",
+        "theme": "Temă",
+        "themes": "Teme",
+        "version": "Versiune"
+    },
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "token": "Token de acces personal GitHub"
+                },
+                "description": "Dacă aveți nevoie de ajutor pentru configurare, uitați-vă aici: https:\/\/hacs.netlify.com\/installation\/configuration\/"
+            }
+        }
+    },
+    "confirm": {
+        "delete": "Sigur doriți să ștergeți „{item}”?"
+    },
+    "options": {
+        "step": {
+            "user": {
+                "data": {
+                    "experimental": "Activați funcțiile experimentale",
+                    "release_limit": "Număr de versiuni afișate."
+                }
+            }
+        }
+    },
+    "repository": {
+        "authors": "Autori",
+        "changelog": "Jurnal modificari",
+        "lovelace_copy_example": "Copiați exemplul în clipboard",
+        "lovelace_instruction": "Când adăugați acest lucru la configurația lovelace, folosiți acest",
+        "lovelace_no_js_type": "Nu s-a putut determina tipul acestui plugin, verificați \"repository\"",
+        "newest": "cele mai noi",
+        "note_appdaemon": "mai trebuie să o adăugați in fișierul „apps.yaml”",
+        "note_installed": "Când este instalat, acesta va fi localizat în",
+        "note_integration": "mai trebuie să o adăugați in fișierul „configuration.yaml”",
+        "note_plugin": "mai trebuie să o adăugați la configurația lovelace ('ui-lovelace.yaml' sau in editorul UI)",
+        "open_plugin": "Deschide plugin",
+        "reinstall": "Reinstalare",
+        "uninstall": "Dezinstalare",
+        "upgrade": "Actualizare"
+    },
+    "settings": {
+        "delete": "Șterge",
+        "display": "Afişeaza",
+        "grid": "Grilă",
+        "hacs_repo": "HACS repo",
+        "reload_data": "Reîncărcați datele",
+        "save": "Salveaza",
+        "table": "Tabel",
+        "upgrade_all": "Actualizați toate"
+    }
+}
