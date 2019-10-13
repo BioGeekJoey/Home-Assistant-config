@@ -40,7 +40,7 @@
         "title": "HACS (Home Assistant Community Store)"
     },
     "confirm": {
-        "delete": "Ali ste prepričani, da želite izbrisati '{item}'?"
+        "delete": "Ali ste prepričani, da želite izbrisati \"{item}\"?"
     },
     "options": {
         "step": {

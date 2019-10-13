@@ -24,7 +24,7 @@
       - light.carport_en_co
     service: light.turn_off
 - id: '1570943721479'
-  alias: Nieuwe automatisering
+  alias: dagelijks snapschot; volledig; hass.io
   description: ''
   trigger:
   - at: 03:00:00

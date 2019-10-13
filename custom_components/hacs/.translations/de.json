@@ -2,6 +2,7 @@
     "common": {
         "appdaemon": "AppDaemon",
         "appdaemon_apps": "AppDaemon Apps",
+        "background_task": "Hintergrundprozess läuft. Diese Seite lädt neu, sobald dieser fertig ist.",
         "installed": "Installiert",
         "integration": "Integration",
         "integrations": "Integrationen",
