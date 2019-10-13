@@ -6,9 +6,14 @@ sensor:
       - type: load_5m
       - type: load_15m
       - type: ipv4_address
-        arg: eth0
       - type: processor_use
       - type: last_boot
+
+  - platform: github
+    access_token: !secret github_access_token
+    repositories:
+      - path: 'BioGeekJoey/hassio-config'
+        name: github home assistant repo
 
   - platform: moon
 
