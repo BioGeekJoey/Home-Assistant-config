@@ -7,3 +7,9 @@ owntracks:
   max_gps_accuracy: 1000
   waypoints: false
   events_only: false
+
+input_text:
+  noodles:
+    name: Noodles
+    initial: Slaapt
+    icon: mdi:dog
