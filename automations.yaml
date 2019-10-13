@@ -23,3 +23,12 @@
       - light.veranda_garage
       - light.carport_en_co
     service: light.turn_off
+- id: '1570943721479'
+  alias: Nieuwe automatisering
+  description: ''
+  trigger:
+  - at: 03:00:00
+    platform: time
+  condition: []
+  action:
+  - service: hassio.snapshot_full
