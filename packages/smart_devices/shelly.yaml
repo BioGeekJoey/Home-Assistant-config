@@ -1,0 +1,10 @@
+shelly:
+  discovery: true
+  sensors:
+    - all
+  devices: 
+    - id: "227968"
+      name: spotjes Joël
+      light_switch: true 
+    - id: "2285F5"
+      name: spotjes washok
