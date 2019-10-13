@@ -9,12 +9,6 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-  - platform: github
-    access_token: !secret github_access_token
-    repositories:
-      - path: 'BioGeekJoey/hassio-config'
-        name: github home assistant repo
-
   - platform: moon
 
   - platform: airvisual

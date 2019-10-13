@@ -1,3 +1,9 @@
 sensor:
   - platform: travisci
     api_key: !secret travissensortoken
+
+  - platform: github
+    access_token: !secret github_access_token
+    repositories:
+      - path: 'BioGeekJoey/hassio-config'
+        name: github home assistant repo
