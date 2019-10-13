@@ -8,3 +8,4 @@ shelly:
       light_switch: true 
     - id: "2285F5"
       name: spotjes washok
+      light_switch: true 
