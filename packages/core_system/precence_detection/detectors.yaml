@@ -13,7 +13,7 @@ sensor:
     sensors:
       noodles_mood:
         friendly_name: Noodles
-        icon: mdi:dog
+        icon_template: mdi:dog
         initial: ""
         entity_id: sensor.beat
         value_template: >-
