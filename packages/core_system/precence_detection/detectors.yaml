@@ -8,8 +8,26 @@ owntracks:
   waypoints: false
   events_only: false
 
-input_text:
-  noodles:
-    name: Noodles
-    initial: Slaapt
-    icon: mdi:dog
+sensor:
+  - platform: template
+    sensors:
+      noodles_mood:
+        friendly_name: Noodles
+        icon: mdi:dog
+        initial: ""
+        entity_id: sensor.beat
+        value_template: >-
+          {% set bed_time = states('input_number.bed_hour')|float(23) %}
+          {% set wakeup_time = states('input_number.wakeup_hour')|float(7) %}
+          {% set night = false if now().hour in range(wakeup_time,bed_time) else true %}
+
+          {% set anyone_home %}
+            {% set pipe = joiner(', ') %}
+            {% for person in states.person %} {{ pipe() }}
+              {{ person.state }}
+          {% endfor %}{% endset %}
+          {% set someone_home = true if 'home' in anyone_home else false %}
+
+          {% set output = 'spelen? 🥎' if someone_home and not night else 'Zzz 😴' %}
+
+          {{ output|default('') }}

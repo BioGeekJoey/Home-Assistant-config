@@ -1,8 +1,8 @@
 zone:
-#   - name: home
-#     latitude: !secret lat
-#     longitude: !secret long
-#     radius: 300
+  - name: home
+    latitude: !secret lat
+    longitude: !secret long
+    radius: 200
   - name: stadhuis
     latitude: 51.979300
     longitude: 5.911894
