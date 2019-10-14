@@ -14,7 +14,6 @@ sensor:
       noodles_mood:
         friendly_name: Noodles
         icon_template: mdi:dog
-        initial: ""
         entity_id: sensor.beat
         value_template: >-
           {% set bed_time = states('input_number.bed_hour')|float(23) %}
