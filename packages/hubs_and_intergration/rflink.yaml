@@ -5,11 +5,14 @@ rflink:
   - tristate_088aaa*
   - bft_1003c*
   - doorbell_00011c4e*
+  - doorbell_08b1*
+  - drayton_e000*
   - brelmotor_2f00ab*
   - chuango_5d80*
   - chuango_0696*
   - chuango_bc6f*
   - selectplus_034b*
+  - mertik_gv60_022c4*
 
 switch:
   - platform: rflink
