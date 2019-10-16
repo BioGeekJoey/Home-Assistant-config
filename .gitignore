@@ -3,6 +3,7 @@
 *.key
 *.sh
 *.jinja
+.spotify-token-cache
 .google.token
 .uuid
 home-assistant.db
