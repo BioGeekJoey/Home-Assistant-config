@@ -32,17 +32,7 @@ sensor:
           {{ output|default('') }}
         attribute_templates: 
           outputs:
-            day: 
-              - ['Eten? \U0001F356', [[9,0,20],[14,10,20],[19,0]]]
-              - ['Koekje! \U0001F36A',[[16,40,0,0x0010010],[14,30,10,0x1000100]]]
-              - ['Rondje! \U0001f3c3',[[8,10,40],[13,30,20],[18,0,20]]]
-              - 'Kip? 🐔'
-              - 'Kaas! 🧀'
-              - 'TOUWTJE!!! 🧶'
-              - 'BLAF 😡📢'
-              - 'spelen? 🥎' 
-            night:
-              - 'Zzz 😴'
-              - 'Spook? 👻'
-              - 'SPIN!¡? 🕷'
-              - 'Hallo? 🐕‍🦺'
+            day: >
+              ['Eten? \U0001F356', [[9,0,20],[14,10,20],[19,0]]], ['Koekje! \U0001F36A',[[16,40,0,0x0010010],[14,30,10,0x1000100]]], 'Rondje! \U0001f3c3', 'Kip? 🐔',, 'Kaas! 🧀', 'TOUWTJE!!! 🧶', 'BLAF 😡📢', 'spelen? 🥎' 
+            night: >
+              'Zzz 😴', 'Spook? 👻', 'SPIN!¡? 🕷', 'Hallo? 🐕‍🦺'
