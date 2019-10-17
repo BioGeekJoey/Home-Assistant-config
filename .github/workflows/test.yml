@@ -13,4 +13,7 @@ jobs:
       run: echo Hello, world!
     - name: POST to production to pull new build
       if: succes()
-      run: curl -X POST -H "Content-Type: application/json" --data "{ \"build\": \"success\" }" ${{ secret.WEBHOOK_URL }}
+      run: curl -X POST \
+        --url ${{ secret.WEBHOOK_URL }} \
+        --header 'content-type: application/json' \
+        --data '{ "build": "success" }'
