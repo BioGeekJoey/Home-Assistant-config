@@ -1,6 +1,6 @@
 ---
 name: Home Assistant
-
+#insert linters someday
 
 on:
   push:
