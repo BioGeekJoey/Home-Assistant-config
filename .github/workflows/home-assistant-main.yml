@@ -23,6 +23,13 @@ jobs:
         uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: python -m homeassistant --config ./ --script check_config --info all
+      - name: POST to production to pull new build
+        if: success()
+        run: |
+          curl -X POST \
+          --url ${{ secrets.WEBHOOK_URL }} \
+          --header 'content-type: application/json' \
+          --data '{ "build": "success" }'
   home_assistant_beta:
     runs-on: ubuntu-latest
     steps:
