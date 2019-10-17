@@ -8,7 +8,7 @@ env:
   - HASS='homeassistant'
   - HASS='--pre homeassistant'
   
-matrix:
+matrix: 
   allow_failures: 
     - python: "latest"
     - env: HASS='--pre homeassistant'
