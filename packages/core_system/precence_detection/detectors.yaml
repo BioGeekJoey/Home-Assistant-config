@@ -17,32 +17,31 @@ sensor:
         entity_id: sensor.beat
         value_template: >-
           {#- static input -#}
-          {% set static = [{"Noodles":0,"Output":["","","","","",""]},{"Noodles":1,"Output":["","Spook? \\U0001f47b","","","",""]},{"Noodles":2,"Output":["","","","","",""]},{"Noodles":3,"Output":["","","Hallo? \\U0001f415","","",""]},{"Noodles":4,"Output":["","","","","",""]},{"Noodles":5,"Output":["","","","","SPIN!¡? \\U0001f577",""]},{"Noodles":6,"Output":["","","","","",""]},{"Noodles":7,"Output":["","","","","Koekje! \\U0001F36A",""]},{"Noodles":8,"Output":["","","","","Rondje! \\U0001f3c3","Rondje! \\U0001f3c3"]},{"Noodles":9,"Output":["Eten? \\U0001F356'","Eten? \\U0001F356'","","Kaas! \\U0001f9c0","",""]},{"Noodles":10,"Output":["","","Kaas! \\U0001f9c0","","","Kip? \\U0001f414"]},{"Noodles":11,"Output":["Koekje! \\U0001F36A","","","","",""]},{"Noodles":12,"Output":["","Kaas! \\U0001f9c0","Koekje! \\U0001F36A","","","Kaas! \\U0001f9c0"]},{"Noodles":13,"Output":["Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","Eten? \\U0001F356'","Eten? \\U0001F356'",""]},{"Noodles":14,"Output":["","BLAF \\U0001f621","","","",""]},{"Noodles":15,"Output":["","Kip? \\U0001f414","","","",""]},{"Noodles":16,"Output":["TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","",""]},{"Noodles":17,"Output":["","","","","",""]},{"Noodles":18,"Output":["","Koekje! \\U0001F36A","","","",""]},{"Noodles":19,"Output":["Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","","Eten? \\U0001F356'","Eten? \\U0001F356'"]},{"Noodles":20,"Output":["","","","","Koekje! \\U0001F36A",""]},{"Noodles":21,"Output":["TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","","","",""]},{"Noodles":22,"Output":["","","","","",""]},{"Noodles":23,"Output":["","Koekje! \\U0001F36A","","","TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6"]}]}
-          
-          {#- Input from HA -#}
-          {% set bed_time = states('input_number.bed_hour')|float(23) %}
-          {% set wakeup_time = states('input_number.wakeup_hour')|float(7) %}
-          {% set persons = states.person %}
+{% set static = (([{"Noodles":0,"Output":["","","","","",""]},{"Noodles":1,"Output":["","Spook? \\U0001f47b","","","",""]},{"Noodles":2,"Output":["","","","","",""]},{"Noodles":3,"Output":["","","Hallo? \\U0001f415","","",""]},{"Noodles":4,"Output":["","","","","",""]},{"Noodles":5,"Output":["","","","","SPIN!¡? \\U0001f577",""]},{"Noodles":6,"Output":["","","","","",""]},{"Noodles":7,"Output":["","","","","Koekje! \\U0001F36A",""]},{"Noodles":8,"Output":["","","","","Rondje! \\U0001f3c3","Rondje! \\U0001f3c3"]},{"Noodles":9,"Output":["Eten? \\U0001F356'","Eten? \\U0001F356'","","Kaas! \\U0001f9c0","",""]},{"Noodles":10,"Output":["","","Kaas! \\U0001f9c0","","","Kip? \\U0001f414"]},{"Noodles":11,"Output":["Koekje! \\U0001F36A","","","","",""]},{"Noodles":12,"Output":["","Kaas! \\U0001f9c0","Koekje! \\U0001F36A","","","Kaas! \\U0001f9c0"]},{"Noodles":13,"Output":["Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","Eten? \\U0001F356'","Eten? \\U0001F356'",""]},{"Noodles":14,"Output":["","BLAF \\U0001f621","","","",""]},{"Noodles":15,"Output":["","Kip? \\U0001f414","","","",""]},{"Noodles":16,"Output":["TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","",""]},{"Noodles":17,"Output":["","","","","",""]},{"Noodles":18,"Output":["","Koekje! \\U0001F36A","","","",""]},{"Noodles":19,"Output":["Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","Rondje! \\U0001f3c3","","Eten? \\U0001F356'","Eten? \\U0001F356'"]},{"Noodles":20,"Output":["","","","","Koekje! \\U0001F36A",""]},{"Noodles":21,"Output":["TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6","","","",""]},{"Noodles":22,"Output":["","","","","",""]},{"Noodles":23,"Output":["","Koekje! \\U0001F36A","","","TOUWTJE!!! \\U0001f9f6","TOUWTJE!!! \\U0001f9f6"]}])) %}
 
-          {#- Native functions -#}
-          {% set hour = now().hour|int %}
-          {% set minute = now().minute|int %}
+{#- Input from HA -#}
+{% set bed_time = states('input_number.bed_hour')|float(23) %}
+{% set wakeup_time = states('input_number.wakeup_hour')|float(7) %}
+{% set persons = states.person %}
 
-          {#- setting some basic rules -#}
-          {% set person_state = 'home' %}
-          {% set night = false if hour in range(wakeup_time,bed_time) else true %}
-          {% set anyone_here|d([]) -%}
-          {% set pipe = joiner(', ') -%}
-          {% for person in persons %}{{ pipe() -}}
-          {{ person.state }}{% endfor %}{% endset -%}
-          {% set someone_here = true, [anyone_here] if person_state in anyone_here else false %}
+{#- Native functions -#}
+{% set hour = now().hour|int %}
+{% set minute = now().minute|int %}
 
-          {% set x = states.sensor.noodles_mood.attributes.outputs[now().hour]['Output'][now().minute/10|round(0,floor)|int] %}
+{% set person_state = 'home' %}
+{% set night = false if hour in range(wakeup_time,bed_time) else true %}
+{% set anyone_here|d([]) -%}
+{% set pipe = joiner(', ') -%}
+{% for person in persons %}{{ pipe() -}}
+{{ person.state }}{% endfor %}{% endset -%}
+{% set someone_here = true, [anyone_here] if person_state in anyone_here else false %}
 
-          {% if x %}
-          {{ x }}
-          {% elif someone_here and not night %}
-          {{ 'spelen? 🥎' }}
-          {% else %}
-          {{ 'Zzz 😴' }}
-          {% endif %}
+{% set x = static[now().hour]['Output'][now().minute/10|round(0,floor)|int] %}
+
+{% if x %}
+{{ x }}
+{% elif someone_here and not night %}
+{{ 'spelen? 🥎' }}
+{% else %}
+{{ 'Zzz 😴' }}
+{% endif %}
