@@ -3,7 +3,9 @@
 *.key
 *.sh
 *.jinja
+
 .spotify-token-cache
+.notes_and_scribbles
 .google.token
 .uuid
 home-assistant.db
@@ -13,6 +15,7 @@ html5_push_registrations.conf
 ip_bans.yaml
 known_devices.yaml
 secrets.yaml
+secrets_remote.yaml
 
 Dockerfile
 
