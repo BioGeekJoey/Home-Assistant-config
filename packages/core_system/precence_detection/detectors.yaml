@@ -33,7 +33,7 @@ sensor:
           {% set who_home %}{% for person in persons %}{{ person.state }}{% endfor %}{% endset %}
           {% set home_alone = true if home_if not in who_home %}
 
-          {% set x = static[now().hour].output[now().minute|round(-1, 'floor')|int/10] %}
+          {% set x = static[now().hour].output[(now().minute/10)|round(0,'floor')] %}
 
           {% if x %}
           {{ x }}
