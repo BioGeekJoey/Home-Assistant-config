@@ -16,6 +16,7 @@ ip_bans.yaml
 known_devices.yaml
 secrets.yaml
 secrets_remote.yaml
+!.secrets/*
 
 Dockerfile
 

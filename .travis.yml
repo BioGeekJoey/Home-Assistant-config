@@ -14,7 +14,7 @@ matrix:
     - env: HASS='--pre homeassistant'
 
 before_install:
-  - mv .secrets/redactedsecrets.yaml secrets.yaml
+  - mv .secrets/secrets.yaml secrets.yaml
   - touch home-assistant_v2.db
   - touch home-assistant.log
 
