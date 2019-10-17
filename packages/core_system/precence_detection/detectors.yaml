@@ -14,10 +14,10 @@ sensor:
       noodles_mood:
         friendly_name: Noodles
         icon_template: mdi:dog
-        entity_id: sensor.beat
+        entity_id: sensor.internet_time
         value_template: >-
           {#- static input -#}
-          {% set static = (([{"Noodles":0,"output":["","","","","",""]},{"Noodles":1,"output":["","Spook? 👻","","","",""]},{"Noodles":2,"output":["","","","","",""]},{"Noodles":3,"output":["","","Hallo? ⁉","","",""]},{"Noodles":4,"output":["","","","","",""]},{"Noodles":5,"output":["","","","","SPIN!¡? 🕷",""]},{"Noodles":6,"output":["","","","","","Gaap! 🥱"]},{"Noodles":7,"output":["","","","","Koekje! 🍪",""]},{"Noodles":8,"output":["","Meow? 😸","","","Rondje! 🏃","Rondje! 🏃"]},{"Noodles":9,"output":["Eten? 🍖'","Eten? 🍖'","","Kaas! 🧀","",""]},{"Noodles":10,"output":["","","Kaas! 🧀","","","Kip? 🐔"]},{"Noodles":11,"output":["Koekje! 🍪","","","Beestje? 🐞","",""]},{"Noodles":12,"output":["","Kaas! 🧀","Koekje! 🍪","","","Kaas! 🧀"]},{"Noodles":13,"output":["Rondje! 🏃","Rondje! 🏃","Rondje! 🏃","Eten? 🍖'","Eten? 🍖'",""]},{"Noodles":14,"output":["","BLAF 😡","","","",""]},{"Noodles":15,"output":["","Kip? 🐔","","","",""]},{"Noodles":16,"output":["TOUWTJE!!! 🧶","TOUWTJE!!! 🧶","TOUWTJE!!! 🧶","TOUWTJE!!! 🧶","",""]},{"Noodles":17,"output":["","","","","",""]},{"Noodles":18,"output":["","Koekje! 🍪","","","",""]},{"Noodles":19,"output":["Rondje! 🏃","Rondje! 🏃","Rondje! 🏃","","Eten? 🍖'","Eten? 🍖'"]},{"Noodles":20,"output":["","","","","Koekje! 🍪",""]},{"Noodles":21,"output":["TOUWTJE!!! 🧶","TOUWTJE!!! 🧶","","","",""]},{"Noodles":22,"output":["","","","","",""]},{"Noodles":23,"output":["","Koekje! 🍪","","","TOUWTJE!!! 🧶","TOUWTJE!!! 🧶"]}])) %}
+          {% set static = (([{"Noodles":0,"output":["","","","","",""]},{"Noodles":1,"output":["","Spook? 👻","","","",""]},{"Noodles":2,"output":["","","","","",""]},{"Noodles":3,"output":["","","Hallo? ⁉","","",""]},{"Noodles":4,"output":["","","","","",""]},{"Noodles":5,"output":["","","","","SPIN!¡? 🕷",""]},{"Noodles":6,"output":["","","","","","Gaap! 🥱"]},{"Noodles":7,"output":["","","","","Koekje! 🍪",""]},{"Noodles":8,"output":["","Meow? 😸","","","Rondje! 🏃","Rondje! 🏃"]},{"Noodles":9,"output":["Eten? 🍖'","Eten? 🍖'","","Kaas! 🧀","",""]},{"Noodles":10,"output":["","","Kaas! 🧀","","","Kip? 🐔"]},{"Noodles":11,"output":["Koekje! 🍪","","","Beestje? 🐞","",""]},{"Noodles":12,"output":["","Kaas! 🧀","Koekje! 🍪","","","Kaas! 🧀"]},{"Noodles":13,"output":["Rondje! 🏃","Rondje! 🏃","Rondje! 🏃","Eten? 🍖'","Eten? 🍖'",""]},{"Noodles":14,"output":["","BLAF 😡","","","",""]},{"Noodles":15,"output":["","Kip? 🐔","","","",""]},{"Noodles":16,"output":["Bal! ⚽","TOUWTJE!!! 🧶","TOUWTJE!!! 🧶","BAL! ⚾","",""]},{"Noodles":17,"output":["","","","","",""]},{"Noodles":18,"output":["","Koekje! 🍪","","","",""]},{"Noodles":19,"output":["Rondje! 🏃","Rondje! 🏃","Rondje! 🏃","","Eten? 🍖'","Eten? 🍖'"]},{"Noodles":20,"output":["","","","","Koekje! 🍪",""]},{"Noodles":21,"output":["TOUWTJE!!! 🧶","TOUWTJE!!! 🧶","","","",""]},{"Noodles":22,"output":["","","","","",""]},{"Noodles":23,"output":["","Koekje! 🍪","","","TOUWTJE!!! 🧶","TOUWTJE!!! 🧶"]}])) %}
 
           {#- Input from HA -#}
           {% set bed_time = states('input_number.bed_hour')|float(23) %}
@@ -28,19 +28,16 @@ sensor:
           {% set hour = now().hour|int %}
           {% set minute = now().minute|int %}
 
-          {% set person_state = 'home' %}
           {% set night = false if hour in range(wakeup_time,bed_time) else true %}
-          {% set anyone_here|d([]) -%}
-          {% set pipe = joiner(', ') -%}
-          {% for person in persons %}{{ pipe() -}}
-          {{ person.state }}{% endfor %}{% endset -%}
-          {% set someone_here = true, [anyone_here] if person_state in anyone_here else false %}
+          {% set home_if = 'home' %}
+          {% set who_home %}{% for person in persons %}{{ person.state }}{% endfor %}{% endset %}
+          {% set home_alone = true if home_if not in who_home %}
 
-          {% set x = static[now().hour].output[(now().minute|round(-1,floor)/10)|int] %}
+          {% set x = static[now().hour].output[now().minute|round(-1, 'floor')|int/10] %}
 
           {% if x %}
           {{ x }}
-          {% elif someone_here and not night %}
+          {% elif not (home_alone and night) %}
           {{ 'spelen? 🥎' }}
           {% else %}
           {{ 'Zzz 😴' }}
