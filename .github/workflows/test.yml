@@ -12,7 +12,7 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, world!
     - name: POST to production to pull new build
-      if: succes()
+      if: success()
       run: |
         curl -X POST \
         --url ${{ secrets.WEBHOOK_URL }} \
