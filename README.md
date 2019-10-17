@@ -1,7 +1,7 @@
 
-# [![HA version][ha-shield]][homeassistant] [![config for hassio][config-shield]][config] [![Current release][release-shield]][release] [![last commit][commits-shield]][commits] [![To do][issues-shield]][issues] [![Travis Status][travis-shield]][travis]
+# [![HA version][ha-shield]][homeassistant] [![config for hassio][config-shield]][config] [![Current release][release-shield]][release] [![last commit][commits-shield]][commits] [![To do][issues-shield]][issues] 
 
-# <img height=75px width=75px src="https://github.com/home-assistant/home-assistant-assets/blob/master/loading-screen.gif"> Home Assistant config
+# <img height=75px width=75px src="https://github.com/home-assistant/home-assistant-assets/blob/master/loading-screen.gif"> Home Assistant config [![Githubactions][GHactionsshield]][GHactions][![Travis Status][travis-shield]][travis]
 
 This repository serves mainly as a backup of my config file in case everything goes wrong and we have to abandon ship! Feel free to peek around. Reusing my config files is at own risk and feedback is appreciated (I'm a biologist and not a programmer)
 
@@ -15,6 +15,7 @@ This repository serves mainly as a backup of my config file in case everything g
 
 WIP
 
+[GHactions]:https://github.com/BioGeekJoey/hassio-config/workflows/Home%20Assistant
 [travis]:https://travis-ci.com/BioGeekJoey/hassio-config
 [commits]:https://github.com/BioGeekJoey/hassio-config/commits/master
 [homeassistant]:https://home-assistant.io
@@ -23,6 +24,7 @@ WIP
 [release]:https://github.com/BioGeekJoey/hassio-config/releases
 [uptimerobot]:https://uptimerobot.com
 
+[GHactionsshield]:https://github.com/BioGeekJoey/hassio-config/workflows/Home%20Assistant/badge.svg
 [travis-shield]:https://img.shields.io/travis/BioGeekJoey/hassio-config.svg?logo=travis&style=flat-square&branch=master
 [commits-shield]:https://img.shields.io/github/last-commit/BioGeekJoey/hassio-config.svg?logo=icloud&logoColor=white&style=flat-square
 [ha-shield]:https://img.shields.io/badge/Home%20Assistant-0.100.2-03a9f4.svg?style=flat-square&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIxLjgsMTNIMjBWMjFIMTNWMTcuNjdMMTUuNzksMTQuODhMMTYuNSwxNUMxNy42NiwxNSAxOC42LDE0LjA2IDE4LjYsMTIuOUMxOC42LDExLjc0IDE3LjY2LDEwLjggMTYuNSwxMC44QTIuMSwyLjEgMCAwLDAgMTQuNCwxMi45TDE0LjUsMTMuNjFMMTMsMTUuMTNWOS42NUMxMy42Niw5LjI5IDE0LjEsOC42IDE0LjEsNy44QTIuMSwyLjEgMCAwLDAgMTIsNS43QTIuMSwyLjEgMCAwLDAgOS45LDcuOEM5LjksOC42IDEwLjM0LDkuMjkgMTEsOS42NVYxNS4xM0w5LjUsMTMuNjFMOS42LDEyLjlBMi4xLDIuMSAwIDAsMCA3LjUsMTAuOEEyLjEsMi4xIDAgMCwwIDUuNCwxMi45QTIuMSwyLjEgMCAwLDAgNy41LDE1TDguMjEsMTQuODhMMTEsMTcuNjdWMjFINFYxM0gyLjI1QzEuODMsMTMgMS40MiwxMyAxLjQyLDEyLjc5QzEuNDMsMTIuNTcgMS44NSwxMi4xNSAyLjI4LDExLjcyTDExLDNDMTEuMzMsMi42NyAxMS42NywyLjMzIDEyLDIuMzNDMTIuMzMsMi4zMyAxMi42NywyLjY3IDEzLDNMMTcsN1Y2SDE5VjlMMjEuNzgsMTEuNzhDMjIuMTgsMTIuMTggMjIuNTksMTIuNTkgMjIuNiwxMi44QzIyLjYsMTMgMjIuMiwxMyAyMS44LDEzTTcuNSwxMkEwLjksMC45IDAgMCwxIDguNCwxMi45QTAuOSwwLjkgMCAwLDEgNy41LDEzLjhBMC45LDAuOSAwIDAsMSA2LjYsMTIuOUEwLjksMC45IDAgMCwxIDcuNSwxMk0xNi41LDEyQzE3LDEyIDE3LjQsMTIuNCAxNy40LDEyLjlDMTcuNCwxMy40IDE3LDEzLjggMTYuNSwxMy44QTAuOSwwLjkgMCAwLDEgMTUuNiwxMi45QTAuOSwwLjkgMCAwLDEgMTYuNSwxMk0xMiw2LjlDMTIuNSw2LjkgMTIuOSw3LjMgMTIuOSw3LjhDMTIuOSw4LjMgMTIuNSw4LjcgMTIsOC43QzExLjUsOC43IDExLjEsOC4zIDExLjEsNy44QzExLjEsNy4zIDExLjUsNi45IDEyLDYuOVoiIGZpbGw9IiNmZmZmZmYiIC8+PC9zdmc+Cg==
