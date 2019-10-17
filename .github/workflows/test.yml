@@ -15,6 +15,6 @@ jobs:
       if: succes()
       run: |
         curl -X POST \
-        --url ${{ secret.WEBHOOK_URL }} \
+        --url ${{ secrets.WEBHOOK_URL }} \
         --header 'content-type: application/json' \
         --data '{ "build": "success" }'
