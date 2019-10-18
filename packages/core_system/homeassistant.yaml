@@ -15,7 +15,10 @@ http:
   # ip_ban_enabled:  true
   # login_attempts_threshold: 5
 
+### Text to speech is used to enable Google Home to relay information via a spoken message ###
 tts:
   - platform: google_translate
     language: 'nl'
     base_url: !secret base_url
+
+system_health:
