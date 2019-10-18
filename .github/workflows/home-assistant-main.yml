@@ -15,12 +15,12 @@ jobs:
       - name: move redacted secrets
         run: cp -R ./.secrets/* ./
       - name: Home Assistant version
-        uses: "docker://homeassistant/home-assistant:stable"
+        uses: 'docker://homeassistant/home-assistant:stable'
         with:
           args: |
             python -m homeassistant --version
       - name: Home Assistant config check
-        uses: "docker://homeassistant/home-assistant:stable"
+        uses: 'docker://homeassistant/home-assistant:stable'
         with:
           args: python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
@@ -38,12 +38,12 @@ jobs:
       - name: move redacted secrets
         run: cp -R ./.secrets/* ./
       - name: Home Assistant version
-        uses: "docker://homeassistant/home-assistant:beta"
+        uses: 'docker://homeassistant/home-assistant:beta'
         with:
           args: |
             python -m homeassistant --version
       - name: Home Assistant config check
-        uses: "docker://homeassistant/home-assistant:beta"
+        uses: 'docker://homeassistant/home-assistant:beta'
         with:
           args: python -m homeassistant --config ./ --script check_config --info all
   home_assistant_dev:
@@ -54,11 +54,11 @@ jobs:
       - name: move redacted secrets
         run: cp -R ./.secrets/* ./
       - name: Home Assistant version
-        uses: "docker://homeassistant/home-assistant:dev"
+        uses: 'docker://homeassistant/home-assistant:dev'
         with:
           args: |
             python -m homeassistant --version
       - name: Home Assistant config check
-        uses: "docker://homeassistant/home-assistant:dev"
+        uses: 'docker://homeassistant/home-assistant:dev'
         with:
           args: python -m homeassistant --config ./ --script check_config --info all

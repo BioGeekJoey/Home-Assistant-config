@@ -1,11 +1,12 @@
+---
 shelly:
   discovery: true
   sensors:
     - all
-  devices: 
+  devices:
     - id: "227968"
       name: spotjes Joël
-      light_switch: true 
+      light_switch: true
     - id: "2285F5"
       name: spotjes washok
-      light_switch: true 
+      light_switch: true

@@ -1,3 +1,4 @@
+---
 climate:
   - platform: toon_climate
     name: Toon thermostaat

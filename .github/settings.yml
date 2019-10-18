@@ -1,6 +1,6 @@
 ---
 repository:
-  description: ":house: Home Assistant config."
+  description: ':house: Home Assistant config.'
   homepage: https://github.com/BioGeekJoey/
   topics: homeassistant-config, home-assistant-config, home-assistant, homeassistant, hass, hassio, iot, internetofthings, internet-of-things, automation, homeautomation, home-automation
   private: false
@@ -14,13 +14,13 @@ repository:
   allow_rebase_merge: true
 
   branches:
-  - name: master
-    protection:
-      required_pull_request_reviews:
-        # required_approving_review_count: 1
-        dismiss_stale_reviews: true
-        require_code_owner_reviews: true
-      required_status_checks:
-        strict: false
-        contexts: []
-      enforce_admins: false
+    - name: master
+      protection:
+        required_pull_request_reviews:
+          # required_approving_review_count: 1
+          dismiss_stale_reviews: true
+          require_code_owner_reviews: true
+        required_status_checks:
+          strict: false
+          contexts: []
+        enforce_admins: false

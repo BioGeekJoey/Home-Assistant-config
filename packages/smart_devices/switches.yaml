@@ -1,27 +1,30 @@
+---
 switch:
   - platform: rflink
     devices:
-
       ab400d_4b_3:
-        name: "jukebox"
-
-      # newkaku_0174cb3e_1:
-
+        name: 'jukebox'
+      ###
+      newkaku_0174cb3e_1:
+        name:
+      ###
       # newkaku_0174cb3e_3:
-
+      #   name:
+      ###
       newkaku_01e9cb26_1:
-        name: "ventilator Joël"
-
+        name: 'ventilator Joël'
+      ###
       newkaku_01e9cb26_2:
-        name: "monitor Joël"
-
+        name: 'monitor Joël'
+      ###
       # newkaku_01e9cb26_3:
       #   name: "tv Joël"
-
+      ###
       newkaku_01e01e46_1:
-        name: "creality ender-3 pro"
-
+        name: 'creality ender-3 pro'
+      ###
       newkaku_01e01e46_2:
-        name: "tevo tarantula pro"
-
+        name: 'tevo tarantula pro'
+      ###
       # newkaku_01e01e46_3:
+      #   name:

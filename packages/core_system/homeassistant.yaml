@@ -1,3 +1,4 @@
+---
 homeassistant:
   latitude: !secret lat
   longitude: !secret long
