@@ -1,0 +1,5 @@
+---
+clean_up_snapshots_service:
+  host: !secret clean_up_host
+  token: !secret clean_up_key
+  number_of_snapshots_to_keep: 3
