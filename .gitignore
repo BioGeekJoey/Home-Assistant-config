@@ -1,38 +1,42 @@
+### Home Assistant ###
+
+# general GitHub no-nos #
 *.crt
 *.csr
 *.key
 *.sh
-*.jinja
 
+# logs and caches #
 .spotify-token-cache
-.notes_and_scribbles
 .google.token
 .uuid
 home-assistant.db
 home-assistant_v2.db
 home-assistant_v2.db-*
-html5_push_registrations.conf
-ip_bans.yaml
-known_devices.yaml
-secrets.yaml
-secrets_remote.yaml
-!.secrets/*
-
-Dockerfile
-
+home-assistant.log
 *.db-journal
 *.pid
 tts
 
-deps
-lib
-www
+# gerenated folders #
 .storage
 .cloud
 .Trash*
 
-home-assistant.log
+# contain personal data potentially #
+html5_push_registrations.conf
+ip_bans.yaml
+known_devices.yaml
+secrets.yaml
+
+# .gitdontignore #
+!.secrets/*
 
 #custom_components/
 __pycache__/
 notebooks/
+
+# other #
+Dockerfile
+deps
+lib
