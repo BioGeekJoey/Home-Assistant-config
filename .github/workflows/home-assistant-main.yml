@@ -30,7 +30,23 @@ jobs:
           --url ${{ secrets.WEBHOOK_URL }} \
           --header 'content-type: application/json' \
           --data '{ "build": "success" }'
-  home_assistant_beta:
+    home_assistant-rc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull config from GitHub repo
+        uses: actions/checkout@v1
+      - name: move redacted secrets
+        run: cp -R ./.secrets/* ./
+      - name: Home Assistant version
+        uses: 'docker://homeassistant/home-assistant:rc'
+        with:
+          args: |
+            python -m homeassistant --version
+      - name: Home Assistant config check
+        uses: 'docker://homeassistant/home-assistant:rc'
+        with:
+          args: python -m homeassistant --config ./ --script check_config --info all
+    home_assistant_beta:
     runs-on: ubuntu-latest
     steps:
       - name: pull config from GitHub repo
@@ -46,7 +62,23 @@ jobs:
         uses: 'docker://homeassistant/home-assistant:beta'
         with:
           args: python -m homeassistant --config ./ --script check_config --info all
-  home_assistant_dev:
+    home_assistant_latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull config from GitHub repo
+        uses: actions/checkout@v1
+      - name: move redacted secrets
+        run: cp -R ./.secrets/* ./
+      - name: Home Assistant version
+        uses: 'docker://homeassistant/home-assistant:latest'
+        with:
+          args: |
+            python -m homeassistant --version
+      - name: Home Assistant config check
+        uses: 'docker://homeassistant/home-assistant:latest'
+        with:
+          args: python -m homeassistant --config ./ --script check_config --info all
+    home_assistant_dev:
     runs-on: ubuntu-latest
     steps:
       - name: pull config from GitHub repo
