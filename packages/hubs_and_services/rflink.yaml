@@ -1,4 +1,8 @@
 ---
+### This file contains all default settings for 
+### the RFLink hub, which uses MHz443
+### to wirelessly control devices
+
 rflink:
   port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__USBDevice_85633323530351C0E162-if00
   ignore_devices:

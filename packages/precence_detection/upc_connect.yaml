@@ -1,0 +1,5 @@
+---
+device_tracker:
+  - platform: upc_connect
+    host: !secret connectbox
+    password: !secret connectbox_password

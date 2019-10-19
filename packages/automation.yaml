@@ -1,0 +1,4 @@
+---
+automation: !include_dir_named ../automations
+
+script: !include_dir_named ../scripts

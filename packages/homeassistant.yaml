@@ -1,0 +1,8 @@
+---
+homeassistant:
+  latitude: !secret lat
+  longitude: !secret long
+  elevation: 17
+  unit_system: metric
+  time_zone: CET
+#  customize: !include customize.yaml

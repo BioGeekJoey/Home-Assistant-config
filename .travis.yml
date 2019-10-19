@@ -1,4 +1,8 @@
 ---
+### Since I enrolled in the GitHub actions beta
+### I have decided to retire Travis for now
+### config file for nostalgic reasons ###
+
 # dist: xenial:latest
 
 # language: python
