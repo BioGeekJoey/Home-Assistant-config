@@ -20,6 +20,7 @@ before_install:
   - touch home-assistant.log
 
 install:
+  - pip3 install python-dateutil
   - pip3 install $HASS
   - pip3 install colorlog
 
