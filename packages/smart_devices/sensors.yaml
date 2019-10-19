@@ -7,6 +7,9 @@ sensor:
       - type: load_5m
       - type: load_15m
       - type: ipv4_address
+        arg: ovs_eth0
+      - type: ipv4_address
+        arg: ovs_eth1
       - type: processor_use
       - type: last_boot
 
@@ -17,13 +20,13 @@ sensor:
 
   - platform: time_date
     display_options:
-      - "time"
-      - "date"
-      - "date_time"
-      - "date_time_iso"
-      - "time_date"
-      - "time_utc"
-      - "beat"
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
 
   - platform: version
 
