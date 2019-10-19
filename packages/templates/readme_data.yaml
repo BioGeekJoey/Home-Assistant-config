@@ -1,0 +1,4 @@
+sensor:
+  - platform: command_line
+    name: README_data
+    command: 'cat /config/packages/templates/readme_data.json'
