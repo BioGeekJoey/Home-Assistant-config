@@ -21,11 +21,12 @@ jobs:
       - name: Home Assistant version
         id: version_check
         run: |
-          echo ::set-output name=homeassistant_version::{ python -m homeassistant --version }
+          echo ::set-output name=homeassistant_version::${{ python -m homeassistant --version }}
+          echo ::set-output name=config_version::${{ cat .HA_VERSION }}
       - name: Home Assistant:stable config check
         id: config_check
         run: |
-          echo "${{ steps.version_check.outputs.homeassistant_version }}"
+          echo "${{ steps.version_check.outputs.homeassistant_version }} ${{ steps.version_check.outputs.config_version }}"
           python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
         if: success() && matrix.release == 'stable'
@@ -35,4 +36,10 @@ jobs:
           --header 'content-type: application/json' \
           --data $JOB_CONTEXT
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ job }}
+      - run: |
+        echo "$OUTPUT_VC"
+        echo "$OUTPUT_CC"
+      env:
+        OUTPUT_VC: ${{ toJson( steps.version_check ) }}
+        OUTPUT_CC: ${{ toJson( steps.config_check ) }}
