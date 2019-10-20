@@ -27,9 +27,7 @@ jobs:
           echo "$STEPS_CONTEXT"
       - name: Home Assistant:stable config check
         id: config_check
-        if: $RELEASE == 'stable' || ( $RELEASE != 'stable' && ./.HA_TEST != ./.HA_VERSION )
-        env:
-          RELEASE: ${{ matrix.release }}
+        if: matrix.release == 'stable' || ( matrix.release != 'stable' && ./.HA_TEST != ./.HA_VERSION )
         run: |
           python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
