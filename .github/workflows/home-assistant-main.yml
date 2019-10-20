@@ -26,7 +26,7 @@ jobs:
       - name: Home Assistant:stable config check
         id: config_check
         run: |
-          echo "${{ steps.version_check.outputs.homeassistant_version }} ${{ steps.version_check.outputs.config_version }}"
+          echo "The version number of this release ${{ steps.version_check.outputs.homeassistant_version }}\n${{ steps.version_check.outputs.config_version }}"
           python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
         if: success() && matrix.release == 'stable'
@@ -34,7 +34,7 @@ jobs:
           curl -X POST \
           --url ${{ secrets.WEBHOOK_URL }} \
           --header 'content-type: application/json' \
-          --data $JOB_CONTEXT
+          --data '$JOB_CONTEXT'
         env:
           JOB_CONTEXT: ${{ job }}
       - run: |
