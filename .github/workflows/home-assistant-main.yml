@@ -7,6 +7,7 @@ jobs:
   test:
     name: Home Assistant ${{matrix.release}}
     runs-on: ubuntu-18.04
+    container: docker://homeassistant/home-assistant:${{matrix.release}}
     strategy:
       matrix:
         release: ['stable', 'rc', 'dev']
@@ -17,14 +18,15 @@ jobs:
       - name: move redacted secrets
         run: cp -R ./.secrets/* ./
       - name: Home Assistant version
+        id: version_check
+        run: |
+          python -m homeassistant --version
+      - name: Home Assistant:stable config check
+        id: config_check
         uses: docker://homeassistant/home-assistant:stable
         with:
           args: |
-            python -m homeassistant --version
-      - name: Home Assistant:stable config check
-        uses: docker://homeassistant/home-assistant:stable
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
+            python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
         if: success()
         run: |
