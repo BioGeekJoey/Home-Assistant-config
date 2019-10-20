@@ -21,7 +21,7 @@ jobs:
       - name: Home Assistant version
         id: version_check
         run: |
-          echo ::set-output name=homeassistant_version::${{ python -m homeassistant --version }}
+          echo ::set-output name=homeassistant_version::$( python -m homeassistant --version )
           echo ::set-output name=config_version::${{ cat .HA_VERSION }}
       - name: Home Assistant:stable config check
         id: config_check
