@@ -1,0 +1,9 @@
+---
+id: '1571334543594'
+alias: GitHub Actions pass; Pull config; hass.io
+description: GitHub webhook voor het controleren van de CI status van config updates.
+trigger:
+  - platform: webhook
+    webhook_id: GitHub_webhook
+condition: []
+action: []

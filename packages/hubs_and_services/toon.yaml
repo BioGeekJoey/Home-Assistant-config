@@ -1,4 +1,9 @@
 ---
+### Toon is a 'smart thermostat' from the Dutch
+### company Eneco. Our Toon has been rooted
+### as we aren't Eneco customers and bought
+### the unit secondhand ###
+
 climate:
   - platform: toon_climate
     name: Toon thermostaat
@@ -14,12 +19,12 @@ sensor:
     resources:
       - gasused
       - gasusedcnt
-      - elecusageflowpulse
-      # - elecusagecntpulse
-      - elecusageflowlow
-      # - elecusagecntlow
-      - elecusageflowhigh
-      # - elecusagecnthigh
+      # - elecusageflowpulse
+      - elecusagecntpulse
+      # - elecusageflowlow
+      - elecusagecntlow
+      # - elecusageflowhigh
+      - elecusagecnthigh
       # - elecprodflowlow
       # - elecprodcntlow
       # - elecprodflowhigh

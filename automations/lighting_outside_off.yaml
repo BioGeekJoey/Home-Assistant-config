@@ -1,0 +1,13 @@
+---
+id: '1564754408874'
+alias: Verlichting; uit; veranda garage carport; zonsopkomst
+trigger:
+  - event: sunrise
+    platform: sun
+condition: []
+action:
+  - data:
+      entity_id:
+        - light.veranda_garage
+        - light.carport_en_co
+    service: light.turn_off

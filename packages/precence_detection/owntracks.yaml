@@ -1,0 +1,5 @@
+---
+owntracks:
+  max_gps_accuracy: 500
+  waypoints: false
+  events_only: false
