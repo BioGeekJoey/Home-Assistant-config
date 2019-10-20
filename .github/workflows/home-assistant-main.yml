@@ -4,45 +4,45 @@ name: Home Assistant
 on: [push, pull_request]
 
 jobs:
-  home_assistant_build:
-    runs-on: ubuntu-latest
-
+  test:
+    name: Home Assistant ${{matrix.release}}
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
-        release:
-          - stable
-          - rc
-          - dev
-
+        release: ['stable', 'rc', 'dev']
+    
     steps:
-      - name: pull config from GitHub repo
-        uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
-      - name: Home Assistant ${{ matrix.release }} version
-        uses: docker://homeassistant/home-assistant:${{ matrix.release }}
-        with:
-          args: |
-            python -m homeassistant --version
-      - name: Home Assistant ${{ matrix.release }} config check
-        uses: docker://homeassistant/home-assistant:${{ matrix.release }}
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
-      - name: POST to production to pull new build
-        if: success()
-        run: |
-          curl -X POST \
-          --url ${{ secrets.WEBHOOK_URL }} \
-          --header 'content-type: application/json' \
-          --data '{ "build": "success" }'
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
+    - name: pull config from GitHub repo
+      uses: actions/checkout@v1
+    - name: move redacted secrets
+      run: cp -R ./.secrets/* ./
+    - name: Home Assistant ${{ matrix.release }} version
+      uses: docker://homeassistant/home-assistant:${{ matrix.release }}
+      with:
+        args: |
+          python -m homeassistant --version
+    - name: Home Assistant ${{ matrix.release }} config check
+      uses: docker://homeassistant/home-assistant:${{ matrix.release }}
+      with:
+        args: python -m homeassistant --config ./ --script check_config --info all
+    - name: POST to production to pull new build
+      if: success()
+      run: |
+        curl -X POST \
+        --url ${{ secrets.WEBHOOK_URL }} \
+        --header 'content-type: application/json' \
+        --data '{ "build": "success" }'
+    - name: Dump job context
+      env:
+        JOB_CONTEXT: ${{ toJson(job) }}
+      run: echo "$JOB_CONTEXT"
+    - name: Dump steps context
+      env:
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+      run: echo "$STEPS_CONTEXT"
+
+
+
   # home_assistant-rc:
   #   runs-on: ubuntu-latest
   #   steps:
