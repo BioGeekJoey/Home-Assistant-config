@@ -38,8 +38,8 @@ jobs:
         env:
           JOB_CONTEXT: ${{ job }}
       - run: |
-        echo "$OUTPUT_VC"
-        echo "$OUTPUT_CC"
-      env:
-        OUTPUT_VC: ${{ toJson( steps.version_check ) }}
-        OUTPUT_CC: ${{ toJson( steps.config_check ) }}
+          echo "$OUTPUT_VC"
+          echo "$OUTPUT_CC"
+        env:
+          OUTPUT_VC: ${{ toJson( steps.version_check ) }}
+          OUTPUT_CC: ${{ toJson( steps.config_check ) }}
