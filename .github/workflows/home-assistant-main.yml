@@ -21,10 +21,10 @@ jobs:
       - name: Home Assistant version
         id: version_check
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
         run: |
           python -m homeassistant --version
-          echo "$STEPS_CONTEXT"
+          echo "$RUNNER_CONTEXT"
       - name: Home Assistant:stable config check
         id: config_check
         run: |
