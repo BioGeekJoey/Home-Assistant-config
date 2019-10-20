@@ -37,6 +37,7 @@ __pycache__/
 notebooks/
 
 # other #
+/automations
 Dockerfile
 deps
 lib
