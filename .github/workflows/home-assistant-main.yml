@@ -23,8 +23,8 @@ jobs:
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: |
-          python -m homeassistant --version >> ./.HA_TEST
-          HA_VERSION=$(cat ./.HA-TEST)
+          python -m homeassistant --version > .HA_TEST
+          HA_VERSION=$(cat .HA-TEST)
           echo "$STEPS_CONTEXT"
       - name: Home Assistant:stable config check
         id: config_check
