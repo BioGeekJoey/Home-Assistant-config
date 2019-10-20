@@ -27,7 +27,7 @@ jobs:
           echo "$STEPS_CONTEXT"
       - name: Home Assistant:stable config check
         id: config_check
-        if: ${{ RELEASE }} == 'stable' || ( ${{ RELEASE }} != 'stable' && ./.HA_TEST != ./.HA_VERSION )
+        if: $RELEASE == 'stable' || ( $RELEASE != 'stable' && ./.HA_TEST != ./.HA_VERSION )
         env:
           RELEASE: ${{ matrix.release }}
         run: |
