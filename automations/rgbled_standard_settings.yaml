@@ -1,0 +1,23 @@
+---
+id: '1571249904897'
+alias: ledstrips standaard; bureau zolder, plafond zolder; conditioneel
+description: ''
+trigger:
+  - entity_id: light.bureau_verlichting
+    from: unavailable
+    platform: state
+  - entity_id: light.plafond_verlichting
+    from: unavailable
+    platform: state
+condition: []
+action:
+  - data:
+      brightness_pct: 60
+      entity_id:
+        - light.plafond_verlichting
+        - light.bureau_verlichting
+      rgb_color:
+        - 255
+        - 212
+        - 212
+    service: light.turn_off
