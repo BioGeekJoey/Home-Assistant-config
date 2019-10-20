@@ -32,12 +32,15 @@ secrets.yaml
 # .gitdontignore #
 !.secrets/*
 
-#custom_components/
+# custom_components/ #
 __pycache__/
 notebooks/
 
 # other #
-/automations
+automations/
 Dockerfile
 deps
 lib
+
+# depreciated files kept locally for fallback #
+.travis*
