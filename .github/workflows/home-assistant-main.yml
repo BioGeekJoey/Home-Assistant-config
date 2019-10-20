@@ -8,6 +8,8 @@ jobs:
     name: Home Assistant ${{matrix.release}}
     runs-on: ubuntu-18.04
     container: docker://homeassistant/home-assistant:${{matrix.release}}
+    env:
+      RELEASE: ${{matrix.release}}
     strategy:
       matrix:
         release: ['stable', 'rc', 'dev']
@@ -15,18 +17,21 @@ jobs:
     steps:
       - name: pull config from GitHub repo
         uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
+      - name: move redacted secrets and check Home Assistant version
+        run: |
+          cp -R ./.secrets/* ./
       - name: Home Assistant version
         id: version_check
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
         run: |
-          python -m homeassistant --version
+          python -m homeassistant --version >> ./.HA_TEST
+          echo "$STEPS_CONTEXT"
       - name: Home Assistant:stable config check
         id: config_check
-        uses: docker://homeassistant/home-assistant:stable
-        with:
-          args: |
-            python -m homeassistant --config ./ --script check_config --info all
+        if: $RELEASE == 'stable' || ( $RELEASE != 'stable' && ./.HA_TEST != ./.HA_VERSION )
+        run: |
+          python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
         if: success()
         run: |
@@ -38,71 +43,3 @@ jobs:
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-  # home_assistant-rc:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: pull config from GitHub repo
-  #       uses: actions/checkout@v1
-  #     - name: move redacted secrets
-  #       run: cp -R ./.secrets/* ./
-  #     - name: Home Assistant version
-  #       uses: 'docker://homeassistant/home-assistant:rc'
-  #       with:
-  #         args: |
-  #           python -m homeassistant --version
-  #     - name: Home Assistant config check
-  #       uses: 'docker://homeassistant/home-assistant:rc'
-  #       with:
-  #         args: python -m homeassistant --config ./ --script check_config --info all
-  # home_assistant_beta:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: pull config from GitHub repo
-  #       uses: actions/checkout@v1
-  #     - name: move redacted secrets
-  #       run: cp -R ./.secrets/* ./
-  #     - name: Home Assistant version
-  #       uses: 'docker://homeassistant/home-assistant:beta'
-  #       with:
-  #         args: |
-  #           python -m homeassistant --version
-  #     - name: Home Assistant config check
-  #       uses: 'docker://homeassistant/home-assistant:beta'
-  #       with:
-  #         args: python -m homeassistant --config ./ --script check_config --info all
-  # home_assistant_latest:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: pull config from GitHub repo
-  #       uses: actions/checkout@v1
-  #     - name: move redacted secrets
-  #       run: cp -R ./.secrets/* ./
-  #     - name: Home Assistant version
-  #       uses: 'docker://homeassistant/home-assistant:latest'
-  #       with:
-  #         args: |
-  #           python -m homeassistant --version
-  #     - name: Home Assistant config check
-  #       uses: 'docker://homeassistant/home-assistant:latest'
-  #       with:
-  #         args: python -m homeassistant --config ./ --script check_config --info all
-  # home_assistant_dev:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: pull config from GitHub repo
-  #       uses: actions/checkout@v1
-  #     - name: move redacted secrets
-  #       run: cp -R ./.secrets/* ./
-  #     - name: Home Assistant version
-  #       uses: 'docker://homeassistant/home-assistant:dev'
-  #       with:
-  #         args: |
-  #           python -m homeassistant --version
-  #     - name: Home Assistant config check
-  #       uses: 'docker://homeassistant/home-assistant:dev'
-  #       with:
-  #         args: python -m homeassistant --config ./ --script check_config --info all
