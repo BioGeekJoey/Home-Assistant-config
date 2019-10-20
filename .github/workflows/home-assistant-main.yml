@@ -20,23 +20,19 @@ jobs:
           cp -R ./.secrets/* ./
       - name: Home Assistant version
         id: version_check
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
         run: |
-          python -m homeassistant --version
-          echo "$STEPS_CONTEXT"
+          echo ::set-output name=homeassistant_version::{ python -m homeassistant --version }
       - name: Home Assistant:stable config check
         id: config_check
         run: |
+          echo "${{ steps.version_check.outputs.homeassistant_version }}"
           python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
-        if: success()
+        if: success() && matrix.release == 'stable'
         run: |
           curl -X POST \
           --url ${{ secrets.WEBHOOK_URL }} \
           --header 'content-type: application/json' \
-          --data '{ "build": "success" }'
-      - name: Dump job context
+          --data $JOB_CONTEXT
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
