@@ -9,20 +9,20 @@ jobs:
 
     strategy:
       matrix:
-        ha_version: [stable, rc, dev]
+        release: [stable, rc, dev]
 
     steps:
       - name: pull config from GitHub repo
         uses: actions/checkout@v1
       - name: move redacted secrets
         run: cp -R ./.secrets/* ./
-      - name: Home Assistant ${{ matrix.ha_version}} version
-        uses: docker://homeassistant/home-assistant:${{ matrix.ha_version }}
+      - name: Home Assistant ${{ matrix.release }} version
+        uses: docker://homeassistant/home-assistant:${{ matrix.release }}
         with:
           args: |
             python -m homeassistant --version
-      - name: Home Assistant config check
-        uses: docker://homeassistant/home-assistant:${{ matrix.ha_version }}
+      - name: Home Assistant ${{ matrix.release }} config check
+        uses: docker://homeassistant/home-assistant:${{ matrix.release }}
         with:
           args: python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
