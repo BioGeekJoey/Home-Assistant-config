@@ -5,9 +5,9 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: Home Assistant ${{matrix.release}}
+    name: Home Assistant ${{ matrix.release }}
     runs-on: ubuntu-18.04
-    container: docker://homeassistant/home-assistant:${{matrix.release}}
+    container: docker://homeassistant/home-assistant:${{ matrix.release }}
     strategy:
       matrix:
         release: ['stable', 'rc', 'dev']
@@ -24,12 +24,10 @@ jobs:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: |
           python -m homeassistant --version >> ./.HA_TEST
+          HA_VERSION=$(cat ./.HA-TEST)
           echo "$STEPS_CONTEXT"
       - name: Home Assistant:stable config check
         id: config_check
-        if: $RELEASE == 'stable' || ( $RELEASE != 'stable' && ./.HA_TEST != ./.HA_VERSION )
-        env:
-          RELEASE: ${{ matrix.release }}
         run: |
           python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
