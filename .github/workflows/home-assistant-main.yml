@@ -8,8 +8,6 @@ jobs:
     name: Home Assistant ${{matrix.release}}
     runs-on: ubuntu-18.04
     container: docker://homeassistant/home-assistant:${{matrix.release}}
-    env:
-      RELEASE: ${{matrix.release}}
     strategy:
       matrix:
         release: ['stable', 'rc', 'dev']
@@ -30,6 +28,8 @@ jobs:
       - name: Home Assistant:stable config check
         id: config_check
         if: ${{ RELEASE }} == 'stable' || ( ${{ RELEASE }} != 'stable' && ./.HA_TEST != ./.HA_VERSION )
+        env:
+          RELEASE: ${{ matrix.release }}
         run: |
           python -m homeassistant --config ./ --script check_config --info all
       - name: POST to production to pull new build
