@@ -1,96 +1,43 @@
 ---
 name: Home Assistant
-#insert linters someday
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
-  home_assistant:
-    runs-on: ubuntu-latest
+  test:
+    name: Home Assistant ${{ matrix.release }}
+    runs-on: ubuntu-18.04
+    container: docker://homeassistant/home-assistant:${{ matrix.release }}
+    strategy:
+      matrix:
+        release: ['stable', 'rc', 'dev']
+
     steps:
       - name: pull config from GitHub repo
         uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
+      - name: move redacted secrets and check Home Assistant version
+        run: |
+          cp -R ./.secrets/* ./
       - name: Home Assistant version
-        uses: 'docker://homeassistant/home-assistant:stable'
-        with:
-          args: |
-            python -m homeassistant --version
-      - name: Home Assistant config check
-        uses: 'docker://homeassistant/home-assistant:stable'
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
-      - name: POST to production to pull new build
-        if: success()
+        id: version_check
+        run: |
+          echo ::set-output name=homeassistant_version::$( python -m homeassistant --version )
+          echo ::set-output name=config_version::$( cat .HA_VERSION )
+      - name: Home Assistant:stable config check
+        id: config_check
+        run: |
+          echo Version info\n    release ${{ steps.version_check.outputs.homeassistant_version }}\n    repo ${{ steps.version_check.outputs.config_version }}
+          python -m homeassistant --config ./ --script check_config --info all
+      - name: inform production container to pull
+        if: success() && matrix.release == 'stable'
         run: |
           curl -X POST \
           --url ${{ secrets.WEBHOOK_URL }} \
           --header 'content-type: application/json' \
-          --data '{ "build": "success" }'
-  home_assistant-rc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: pull config from GitHub repo
-        uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
-      - name: Home Assistant version
-        uses: 'docker://homeassistant/home-assistant:rc'
-        with:
-          args: |
-            python -m homeassistant --version
-      - name: Home Assistant config check
-        uses: 'docker://homeassistant/home-assistant:rc'
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
-  home_assistant_beta:
-    runs-on: ubuntu-latest
-    steps:
-      - name: pull config from GitHub repo
-        uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
-      - name: Home Assistant version
-        uses: 'docker://homeassistant/home-assistant:beta'
-        with:
-          args: |
-            python -m homeassistant --version
-      - name: Home Assistant config check
-        uses: 'docker://homeassistant/home-assistant:beta'
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
-  home_assistant_latest:
-    runs-on: ubuntu-latest
-    steps:
-      - name: pull config from GitHub repo
-        uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
-      - name: Home Assistant version
-        uses: 'docker://homeassistant/home-assistant:latest'
-        with:
-          args: |
-            python -m homeassistant --version
-      - name: Home Assistant config check
-        uses: 'docker://homeassistant/home-assistant:latest'
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
-  home_assistant_dev:
-    runs-on: ubuntu-latest
-    steps:
-      - name: pull config from GitHub repo
-        uses: actions/checkout@v1
-      - name: move redacted secrets
-        run: cp -R ./.secrets/* ./
-      - name: Home Assistant version
-        uses: 'docker://homeassistant/home-assistant:dev'
-        with:
-          args: |
-            python -m homeassistant --version
-      - name: Home Assistant config check
-        uses: 'docker://homeassistant/home-assistant:dev'
-        with:
-          args: python -m homeassistant --config ./ --script check_config --info all
+          --data '${{ job }}'
+      - run: |
+          echo "$OUTPUT_VC"
+          echo "$OUTPUT_CC"
+        env:
+          OUTPUT_VC: ${{ toJson( steps.version_check ) }}
+          OUTPUT_CC: ${{ toJson( steps.config_check ) }}
