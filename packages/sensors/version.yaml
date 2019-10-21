@@ -1,3 +1,11 @@
 ---
 sensor:
   - platform: version
+  - platform: version
+    image: qemux86-64
+    source: hassio
+  - platform: version
+    name: Beta Version
+    beta: true
+    image: qemux86-64
+    source: hassio
