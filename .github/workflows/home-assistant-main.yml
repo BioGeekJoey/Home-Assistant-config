@@ -15,19 +15,22 @@ jobs:
     steps:
       - name: pull config from GitHub repo
         uses: actions/checkout@v1
-      - name: move redacted secrets and check Home Assistant version
-        run: |
-          cp -R ./.secrets/* ./
+
       - name: Home Assistant version
         id: version_check
         run: |
           echo ::set-output name=homeassistant_version::$( python -m homeassistant --version )
           echo ::set-output name=config_version::$( cat .HA_VERSION )
-      - name: Home Assistant:stable config check
-        id: config_check
+
+      - name: move redacted secrets
         run: |
-          echo Version info\n    release ${{ steps.version_check.outputs.homeassistant_version }}\n    repo ${{ steps.version_check.outputs.config_version }}
+          cp -R ./.secrets/* ./
+
+      - name: test config against ${{ matrix.release }} release
+        if: matrix.release == 'stable' || steps.version_check.outputs.homeassistant_version != steps.version_check.outputs.config_version
+        run: |
           python -m homeassistant --config ./ --script check_config --info all
+
       - name: inform production container to pull
         if: success() && matrix.release == 'stable'
         run: |
@@ -35,9 +38,6 @@ jobs:
           --url ${{ secrets.WEBHOOK_URL }} \
           --header 'content-type: application/json' \
           --data '${{ job }}'
+
       - run: |
-          echo "$OUTPUT_VC"
-          echo "$OUTPUT_CC"
-        env:
-          OUTPUT_VC: ${{ toJson( steps.version_check ) }}
-          OUTPUT_CC: ${{ toJson( steps.config_check ) }}
+          echo +refs/heads/*:refs/remotes/origin/*
