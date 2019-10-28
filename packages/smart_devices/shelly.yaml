@@ -14,6 +14,8 @@ shelly:
       name: wasmachine
     - id: '267A4A'
       name: droger
+    - id: '2678A9'
+      name: ups
 
 sensor:
   - platform: template
@@ -21,9 +23,9 @@ sensor:
       wasmachine_status:
         friendly_name: wasmachine
         value_template: >-
-          {{ 'klaar' if states.sensor.shelly_shplg_s_2673e0_consumption.state|float <= 2 else '' }}
+          {{ 'klaar' if states.sensor.shelly_shplg_s_2673e0_consumption.state|float <= 2 else 'bezig' }}
 
       droger_status:
         friendly_name: droger
         value_template: >-
-          {{ 'klaar' if states.sensor.shelly_shplg_s_267a4a_consumption.state|float <= 2 else '' }}
+          {{ 'klaar' if states.sensor.shelly_shplg_s_267a4a_consumption.state|float <= 2 else 'bezig' }}
