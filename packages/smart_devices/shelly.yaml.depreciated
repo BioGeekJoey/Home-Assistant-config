@@ -1,6 +1,7 @@
 ---
 ### Shelly devices are now automatically
 ### detected via a costum component
+### installed via community store 
 
 light:
   - platform: mqtt
