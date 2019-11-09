@@ -1,6 +1,7 @@
 ---
 shelly:
   discovery: true
+  igmp_fix: true
   sensors:
     - all
   devices:
@@ -16,6 +17,10 @@ shelly:
       name: droger
     - id: '2678A9'
       name: ups
+    - id: '04116E'
+      name: itho box
+    - id: '125522'
+      name: rolluik Joël
 
 sensor:
   - platform: template
