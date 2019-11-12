@@ -2,7 +2,8 @@
 cover:
   - platform: rflink
     devices:
-      RTS_02FF00_3:
+      RTS_F11434_0:
         name: 'Garage deur'
-        signal_repetitions: 3
+        aliases:
+          - RTS_F11428_01
         group: false
