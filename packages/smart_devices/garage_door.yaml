@@ -4,5 +4,4 @@ cover:
     devices:
       RTS_02FF00_3:
         name: 'Garage deur'
-        signal_repetitions: 3
         group: false
