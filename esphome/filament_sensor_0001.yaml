@@ -1,6 +1,11 @@
+---
+substitutions:
+  device: filamentsensor0001
+  description: omgevingssensor bovenste filament box
+
 esphome:
-  name: "filament_sensor_0001"
-  comment: "omgevingssensor bovenste filament box"
+  name: ${device}
+  comment: ${description}
   platform: ESP8266
   board: d1_mini
 
@@ -9,40 +14,40 @@ wifi:
   password: !secret wifipsk
 
   ap:
-    ssid: "Filament Sensor 0001"
+    ssid: ${device}
     password: !secret fallbackpsk
 
 deep_sleep:
-  run_duration: 60min
-  sleep_duration: 10min
+  run_duration: 120min
+  sleep_duration: 1min
 
 i2c:
 
 sensor:
   - platform: bme280
     temperature:
-      name: "BME280 Temperature"
+      name: ${device} Temperature
       oversampling: 8x
     pressure:
-      name: "BME280 Pressure"
+      name: ${device} Pressure
       oversampling: 8x
     humidity:
-      name: "BME280 Humidity"
+      name: ${device} Humidity
     address: 0x76
     update_interval: 20s
     iir_filter: 4x
     
   - platform: uptime
-    name: "filament sensor 0001 uptime"
+    name: ${device} uptime
     update_interval: 20s
   
   - platform: adc
     pin: VCC
-    name: "filament sensor 0001 VCC Voltage"
+    name: ${device} VCC Voltage
   
 binary_sensor:
   - platform: status
-    name: "filament sensor 0001 status"
+    name: ${device} status
 
 captive_portal:
 logger:

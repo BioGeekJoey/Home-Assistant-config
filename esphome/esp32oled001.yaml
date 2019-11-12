@@ -1,0 +1,58 @@
+esphome:
+  name: esp32oled001
+  platform: ESP32
+  board: heltec_wifi_kit_32
+
+wifi:
+  ssid: !secret ssid
+  password: !secret wifipsk
+
+  manual_ip:
+    static_ip: 192.168.178.30
+    gateway: 192.168.178.1
+    subnet: 255.255.255.0
+
+  ap:
+    ssid: "Ledcontroller0001"
+    password: !secret fallbackpsk
+
+i2c:
+  sda: 4
+  scl: 15
+
+time:
+  - platform: homeassistant
+    id: hatime
+
+sensor:
+  - platform: homeassistant
+    id: polution_level
+    entity_id: sensor.u_s_air_pollution_level
+    internal: true
+
+  - platform: homeassistant
+    id: primary_polutant
+    entity_id: sensor.u_s_main_pollutant
+    internal: true
+
+font:
+  - file: "fonts/OpenSans-Regular.ttf"
+    id: opensans
+    size: 14
+    
+  - file: "fonts/Montserrat-Regular.ttf"
+    id: montserrat
+    size: 14
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    reset_pin: 16
+    address: 0x3C
+    lambda: |-
+      it.print(0, 0, id(opensans), "Hello World!");
+
+captive_portal:
+logger:
+api:
+ota:

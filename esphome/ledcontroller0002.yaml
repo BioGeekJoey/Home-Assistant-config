@@ -1,6 +1,12 @@
+---
+substitutions:
+  device: filamentsensor0001
+  name: plafond verlichting
+  description: ledstrips achter de dwarsbalken, zolder
+
 esphome:
-  name: ledcontroller0002
-  comment: "ledstrips achter de dwarsbalken, zolder"
+  name: ${device}
+  comment: ${description}
   platform: ESP8266
   board: esp01_1m
 
@@ -21,12 +27,12 @@ wifi:
   password: !secret wifipsk
 
   ap:
-    ssid: "Ledcontroller0002"
+    ssid: ${device}
     password: !secret fallbackpsk
 
 light:
   - platform: rgb
-    name: "plafond verlichting"
+    name: ${name}
     id: led0002
     default_transition_length: 3s
     red: output_component1
@@ -46,12 +52,12 @@ output:
 
 sensor:
   - platform: uptime
-    name: "ledcontroller0002 uptime"
+    name: ${device} uptime
     update_interval: 20s
 
 binary_sensor:
   - platform: status
-    name: "ledcontroller0002 status"
+    name: ${device} status
 
 captive_portal:
 logger:
