@@ -1,0 +1,59 @@
+esphome:
+  name: ledcontroller0001
+  comment: "ledstrip onder monitor bureau, zolder"
+  platform: ESP8266
+  board: esp01_1m
+
+  on_boot:
+    priority: -200
+    then:
+      - light.turn_on:
+          id: led0001
+          brightness: 65%
+          red: 1
+          green: 0.824
+          blue: 0.824
+          
+      - light.turn_off: led0001
+
+wifi:
+  ssid: !secret ssid
+  password: !secret wifipsk
+
+  ap:
+    ssid: "Ledcontroller0001"
+    password: !secret fallbackpsk
+
+light:
+  - platform: rgb
+    name: "bureau verlichting"
+    id: led0001
+    default_transition_length: 3s
+    red: output_component1
+    green: output_component2
+    blue: output_component3
+
+output:
+  - platform: esp8266_pwm
+    id: output_component1
+    pin: 14
+  - platform: esp8266_pwm
+    id: output_component2
+    pin: 5
+  - platform: esp8266_pwm
+    id: output_component3
+    pin: 12
+
+sensor:
+  - platform: uptime
+    name: "ledcontroller0001 uptime"
+    update_interval: 20s
+
+binary_sensor:
+  - platform: status
+    name: "ledcontroller0001 status"
+
+captive_portal:
+logger:
+api:
+ota:

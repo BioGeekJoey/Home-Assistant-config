@@ -1,0 +1,59 @@
+esphome:
+  name: ledcontroller0002
+  comment: "ledstrips achter de dwarsbalken, zolder"
+  platform: ESP8266
+  board: esp01_1m
+
+  on_boot:
+    priority: -500
+    then:
+      - light.turn_on:
+          id: led0002
+          brightness: 55%
+          red: 1
+          green: 0.824
+          blue: 0.824
+          
+      - light.turn_off: led0002
+
+wifi:
+  ssid: !secret ssid
+  password: !secret wifipsk
+
+  ap:
+    ssid: "Ledcontroller0002"
+    password: !secret fallbackpsk
+
+light:
+  - platform: rgb
+    name: "plafond verlichting"
+    id: led0002
+    default_transition_length: 3s
+    red: output_component1
+    green: output_component2
+    blue: output_component3
+
+output:
+  - platform: esp8266_pwm
+    id: output_component1
+    pin: 5
+  - platform: esp8266_pwm
+    id: output_component2
+    pin: 12
+  - platform: esp8266_pwm
+    id: output_component3
+    pin: 13
+
+sensor:
+  - platform: uptime
+    name: "ledcontroller0002 uptime"
+    update_interval: 20s
+
+binary_sensor:
+  - platform: status
+    name: "ledcontroller0002 status"
+
+captive_portal:
+logger:
+api:
+ota:
