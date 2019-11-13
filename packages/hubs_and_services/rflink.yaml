@@ -5,7 +5,7 @@
 
 rflink:
   # port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__USBDevice_85633323530351C0E162-if00
-  host: 192.168.178.37
+  host: 192.168.178.103
   port: 1234
   ignore_devices:
   - newkaku_00bb8f36*
