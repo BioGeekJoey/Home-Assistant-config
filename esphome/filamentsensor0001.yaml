@@ -4,6 +4,7 @@ substitutions:
   name: filament box 1
   description: omgevingssensor bovenste filament box
   reboot_timeout: 14d
+  update_interval: 10min
 
 esphome:
   name: ${device}
@@ -12,6 +13,7 @@ esphome:
   board: d1_mini
 
 <<: !include common/common.yaml
+<<: !include common/sensors.yaml
 logger:
 
 deep_sleep:
@@ -33,15 +35,11 @@ sensor:
     address: 0x76
     update_interval: 20s
     iir_filter: 4x
-    
-  - platform: uptime
-    name: ${device} uptime
-    update_interval: 20s
-  
+
   - platform: adc
     pin: VCC
     name: ${device} VCC Voltage
-  
+
 binary_sensor:
   - platform: status
     name: ${device} status

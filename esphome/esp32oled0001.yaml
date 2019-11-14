@@ -4,13 +4,16 @@ substitutions:
   name: Test oled
   description: 
   reboot_timeout: 14d
+  update_interval: 10min
 
 esphome:
   name: ${device}
+  comment: ${description}
   platform: ESP32
   board: heltec_wifi_kit_32
 
 <<: !include  common/common.yaml
+<<: !include common/sensors.yaml
 logger:
 
 i2c:
