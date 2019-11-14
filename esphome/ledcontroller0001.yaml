@@ -1,6 +1,13 @@
+---
+substitutions:
+  device: filamentsensor0001
+  name: bureau verlichting
+  description: ledstrip onder monitor bureau, zolder
+  reboot_timeout: 14d
+
 esphome:
-  name: ledcontroller0001
-  comment: "ledstrip onder monitor bureau, zolder"
+  name: ${device}
+  comment: ${description}
   platform: ESP8266
   board: esp01_1m
 
@@ -16,13 +23,8 @@ esphome:
           
       - light.turn_off: led0001
 
-wifi:
-  ssid: !secret ssid
-  password: !secret wifipsk
-
-  ap:
-    ssid: "Ledcontroller0001"
-    password: !secret fallbackpsk
+<<: !include common/common.yaml
+logger:
 
 light:
   - platform: rgb
@@ -52,8 +54,3 @@ sensor:
 binary_sensor:
   - platform: status
     name: "ledcontroller0001 status"
-
-captive_portal:
-logger:
-api:
-ota:

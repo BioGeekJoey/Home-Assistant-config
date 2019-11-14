@@ -1,7 +1,9 @@
 ---
 substitutions:
   device: filamentsensor0001
+  name: filament box 1
   description: omgevingssensor bovenste filament box
+  reboot_timeout: 14d
 
 esphome:
   name: ${device}
@@ -9,13 +11,8 @@ esphome:
   platform: ESP8266
   board: d1_mini
 
-wifi:
-  ssid: !secret ssid
-  password: !secret wifipsk
-
-  ap:
-    ssid: ${device}
-    password: !secret fallbackpsk
+<<: !include common/common.yaml
+logger:
 
 deep_sleep:
   run_duration: 120min
@@ -48,8 +45,3 @@ sensor:
 binary_sensor:
   - platform: status
     name: ${device} status
-
-captive_portal:
-logger:
-api:
-ota:

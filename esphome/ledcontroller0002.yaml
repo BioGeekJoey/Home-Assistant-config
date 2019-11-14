@@ -1,8 +1,9 @@
 ---
 substitutions:
-  device: filamentsensor0001
+  device: filamentsensor0002
   name: plafond verlichting
   description: ledstrips achter de dwarsbalken, zolder
+  reboot_timeout: 14d
 
 esphome:
   name: ${device}
@@ -22,13 +23,8 @@ esphome:
           
       - light.turn_off: led0002
 
-wifi:
-  ssid: !secret ssid
-  password: !secret wifipsk
-
-  ap:
-    ssid: ${device}
-    password: !secret fallbackpsk
+<<: !include common/common.yaml
+logger:
 
 light:
   - platform: rgb
@@ -58,8 +54,3 @@ sensor:
 binary_sensor:
   - platform: status
     name: ${device} status
-
-captive_portal:
-logger:
-api:
-ota:

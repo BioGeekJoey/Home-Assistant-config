@@ -1,20 +1,17 @@
+---
+substitutions:
+  device: esp32oled0001
+  name: Test oled
+  description: 
+  reboot_timeout: 14d
+
 esphome:
-  name: esp32oled001
+  name: ${device}
   platform: ESP32
   board: heltec_wifi_kit_32
 
-wifi:
-  ssid: !secret ssid
-  password: !secret wifipsk
-
-  manual_ip:
-    static_ip: 192.168.178.30
-    gateway: 192.168.178.1
-    subnet: 255.255.255.0
-
-  ap:
-    ssid: "Ledcontroller0001"
-    password: !secret fallbackpsk
+<<: !include  common/common.yaml
+logger:
 
 i2c:
   sda: 4
@@ -51,8 +48,3 @@ display:
     address: 0x3C
     lambda: |-
       it.print(0, 0, id(opensans), "Hello World!");
-
-captive_portal:
-logger:
-api:
-ota:

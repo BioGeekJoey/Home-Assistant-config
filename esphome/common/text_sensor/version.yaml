@@ -1,0 +1,4 @@
+
+---
+platform: version
+name: ${name} ESPHome Version
