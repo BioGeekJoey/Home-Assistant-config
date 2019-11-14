@@ -4,6 +4,7 @@ substitutions:
   name: plafond verlichting
   description: ledstrips achter de dwarsbalken, zolder
   reboot_timeout: 14d
+  update_interval: 10min
 
 esphome:
   name: ${device}
@@ -24,6 +25,7 @@ esphome:
       - light.turn_off: led0002
 
 <<: !include common/common.yaml
+<<: !include common/sensors.yaml
 logger:
 
 light:
@@ -45,11 +47,6 @@ output:
   - platform: esp8266_pwm
     id: output_component3
     pin: 13
-
-sensor:
-  - platform: uptime
-    name: ${device} uptime
-    update_interval: 20s
 
 binary_sensor:
   - platform: status

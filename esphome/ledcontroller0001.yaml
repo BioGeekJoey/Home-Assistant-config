@@ -4,6 +4,7 @@ substitutions:
   name: bureau verlichting
   description: ledstrip onder monitor bureau, zolder
   reboot_timeout: 14d
+  update_interval: 10min
 
 esphome:
   name: ${device}
@@ -24,6 +25,7 @@ esphome:
       - light.turn_off: led0001
 
 <<: !include common/common.yaml
+<<: !include common/sensors.yaml
 logger:
 
 light:
@@ -45,11 +47,6 @@ output:
   - platform: esp8266_pwm
     id: output_component3
     pin: 12
-
-sensor:
-  - platform: uptime
-    name: "ledcontroller0001 uptime"
-    update_interval: 20s
 
 binary_sensor:
   - platform: status
