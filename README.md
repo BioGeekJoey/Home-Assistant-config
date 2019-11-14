@@ -1,5 +1,5 @@
 
-# [![HA version][ha-shield]][homeassistant] [![config for hassio][config-shield]][config] [![Current release][release-shield]][release] [![last commit][commits-shield]][commits] [![To do][issues-shield]][issues] 
+# [![HA version][ha-shield]][homeassistant] [![config for hassio][config-shield]][config] [![Current release][release-shield]][release] [![last commit][commits-shield]][commits] [![To do][issues-shield]][issues]
 
 # <img height=75px width=75px src="https://github.com/home-assistant/home-assistant-assets/blob/master/loading-screen.gif"> Home Assistant config [![Githubactions][GHactionsshield]][GHactions] [![Travis Status][travis-shield]][travis]
 
