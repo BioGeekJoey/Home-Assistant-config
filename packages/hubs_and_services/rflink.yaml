@@ -1,5 +1,5 @@
 ---
-### This file contains all default settings for 
+### This file contains all default settings for
 ### the RFLink hub, which uses MHz443
 ### to wirelessly control devices
 
@@ -8,18 +8,18 @@ rflink:
   host: 192.168.178.103
   port: 1234
   ignore_devices:
-  - newkaku_00bb8f36*
-  - tristate_088aaa*
-  - bft_1003c*
-  - doorbell_00011c4e*
-  - doorbell_08b1*
-  - drayton_e000*
-  - brelmotor_2f00ab*
-  - chuango_5d80*
-  - chuango_0696*
-  - chuango_bc6f*
-  - selectplus_034b*
-  - mertik_gv60_022c4*
+    - newkaku_00bb8f36*
+    - tristate_088aaa*
+    - bft_1003c*
+    - doorbell_00011c4e*
+    - doorbell_08b1*
+    - drayton_e000*
+    - brelmotor_2f00ab*
+    - chuango_5d80*
+    - chuango_0696*
+    - chuango_bc6f*
+    - selectplus_034b*
+    - mertik_gv60_022c4*
 
 switch:
   - platform: rflink
@@ -35,7 +35,7 @@ light:
 cover:
   - platform: rflink
     device_defaults:
-      signal_repetitions: 3
+      signal_repetitions: 1
 
 sensor:
   - platform: rflink
