@@ -37,6 +37,7 @@ __pycache__/
 notebooks/
 
 # other #
+hassio-config.code-workspace
 automations/
 Dockerfile
 deps
@@ -44,3 +45,4 @@ lib
 
 # depreciated files kept locally for fallback #
 .travis*
+
