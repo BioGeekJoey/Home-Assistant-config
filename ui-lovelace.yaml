@@ -1,0 +1,9 @@
+---
+title: "Hotel Katwoudehof \U0001F340"
+resources: !include_dir_list lovelace/resources
+views:
+  - !include lovelace/views/downstairs.yaml
+  - !include lovelace/views/floorfirst.yaml
+  - !include lovelace/views/attic.yaml
+  - !include locelace/views/system.yaml
+

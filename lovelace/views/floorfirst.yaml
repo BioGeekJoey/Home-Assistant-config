@@ -1,0 +1,7 @@
+---
+path: verdieping1
+title: Eerste verdieping
+icon: mdi:home-floor-1
+cards:
+  - type: 'custom:more-info-card'
+    entity: light.nick_verlichting
