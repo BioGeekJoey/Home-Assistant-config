@@ -1,8 +1,8 @@
 ---
 substitutions:
-  device: filamentsensor0002
-  name: plafond verlichting
-  description: ledstrips achter de dwarsbalken, zolder
+  device: filamentsensor0003
+  name: nick verlichting
+  description: ledstrips onder bureau nick
   reboot_timeout: 14d
   update_interval: 10min
 
@@ -17,12 +17,16 @@ esphome:
     then:
       - light.turn_on:
           id: led0000
-          brightness: 55%
+          brightness: 70%
           red: 1
           green: 0.824
           blue: 0.824
-          
-      - light.turn_off: led0000
+
+wifi:
+  manual_ip:
+    static_ip: 192.168.178.25
+    gateway: 192.168.178.1
+    subnet: 255.255.255.0
 
 <<: !include common/common.yaml
 <<: !include common/sensors.yaml

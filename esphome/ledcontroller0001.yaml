@@ -13,25 +13,26 @@ esphome:
   board: esp01_1m
 
   on_boot:
-    priority: -200
+    priority: -500
     then:
       - light.turn_on:
-          id: led0001
+          id: led0000
           brightness: 65%
           red: 1
           green: 0.824
           blue: 0.824
           
-      - light.turn_off: led0001
+      - light.turn_off: led0000
 
 <<: !include common/common.yaml
 <<: !include common/sensors.yaml
-logger:
+<<: !include common/logger.yaml
+<<: !include common/binary_sensors.yaml
 
 light:
   - platform: rgb
     name: "bureau verlichting"
-    id: led0001
+    id: led0000
     default_transition_length: 3s
     red: output_component1
     green: output_component2
@@ -47,7 +48,3 @@ output:
   - platform: esp8266_pwm
     id: output_component3
     pin: 12
-
-binary_sensor:
-  - platform: status
-    name: "ledcontroller0001 status"
