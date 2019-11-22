@@ -1,6 +1,8 @@
 ---
 shelly:
   discovery: true
+  cloud_auth_key: !secret shelly_cloud_key
+  cloud_server: !secret shelly_cloud_url
   igmp_fix: true
   sensors:
     - all
