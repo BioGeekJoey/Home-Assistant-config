@@ -1,0 +1,63 @@
+---
+substitutions:
+  device: sensorhub0001
+  name: sensor hub dev
+  description: omgevingssensor hub dev
+  reboot_timeout: 14d
+  update_interval: 10min
+
+esphome:
+  name: ${device}
+  comment: ${description}
+  platform: ESP32
+  board: heltec_wifi_kit_32
+
+<<: !include common/common.yaml
+<<: !include common/sensors.yaml
+<<: !include common/logger.yaml
+<<: !include common/binary_sensors.yaml
+
+i2c:
+  sda: 21
+  scl: 22
+
+sensor:
+  - platform: bme280
+    temperature:
+      name: ${device} BME280 temperature
+    pressure:
+      name: ${device} BME280 pressure
+    humidity:
+      name: ${device} BME280 humidity
+    address: 0x76
+    update_interval: 30s
+    
+  - platform: bme680
+    temperature:
+      name: ${device} BME680 Temperature
+    pressure:
+      name: ${device} BME680 Pressure
+    humidity:
+      name: ${device} BME680 Humidity
+    gas_resistance:
+      name: ${device} BME680 Gas Resistance
+    address: 0x77
+    update_interval: 60s
+
+  - platform: bh1750
+    name: ${device} BH1750 illuminance
+    address: 0x23
+    update_interval: 60s
+
+  - platform: tsl2561
+    name: ${device} TSL2561 ambient light
+    address: 0x39
+    update_interval: 60s
+
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: 12
+      mode: INPUT_PULLDOWN
+    name: ${device} RCWL0516 movement
+    device_class: motion

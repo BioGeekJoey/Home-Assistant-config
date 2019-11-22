@@ -6,4 +6,6 @@ cover:
         name: 'Garage deur'
         aliases:
           - RTS_F11428_01
+          - rts_f11428_01
+          - rts_e22863_01
         group: false

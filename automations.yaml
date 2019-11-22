@@ -32,6 +32,7 @@
   condition: []
   action:
   - service: hassio.snapshot_full
+  - service: clean_up_snapshots_service.clean_up
 - id: '1571249904897'
   alias: ledstrips standaard; bureau zolder, plafond zolder; conditioneel
   description: ''
