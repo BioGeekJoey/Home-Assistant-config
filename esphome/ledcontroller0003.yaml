@@ -1,6 +1,6 @@
 ---
 substitutions:
-  device: filamentsensor0003
+  device: ledcontroller0003
   name: nick verlichting
   description: ledstrips onder bureau nick
   reboot_timeout: 14d
@@ -18,15 +18,9 @@ esphome:
       - light.turn_on:
           id: led0000
           brightness: 70%
-          red: 1
-          green: 0.824
-          blue: 0.824
-
-wifi:
-  manual_ip:
-    static_ip: 192.168.178.25
-    gateway: 192.168.178.1
-    subnet: 255.255.255.0
+          red: 0.765
+          green: 1
+          blue: 0.804
 
 <<: !include common/common.yaml
 <<: !include common/sensors.yaml
@@ -45,10 +39,10 @@ light:
 output:
   - platform: esp8266_pwm
     id: output_component1
-    pin: 5
+    pin: 14
   - platform: esp8266_pwm
     id: output_component2
-    pin: 12
+    pin: 5
   - platform: esp8266_pwm
     id: output_component3
-    pin: 13
+    pin: 12

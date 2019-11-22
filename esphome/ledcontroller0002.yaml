@@ -1,6 +1,6 @@
 ---
 substitutions:
-  device: filamentsensor0002
+  device: ledcontroller0002
   name: plafond verlichting
   description: ledstrips achter de dwarsbalken, zolder
   reboot_timeout: 14d

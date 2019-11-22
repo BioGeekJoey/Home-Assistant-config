@@ -1,0 +1,34 @@
+---
+substitutions:
+  device: testsensor0001
+  name: bme280 validation
+  description: to validate other bme280 readings
+  reboot_timeout: 14d
+  update_interval: 10min
+
+esphome:
+  name: ${device}
+  comment: ${description}
+  platform: ESP8266
+  board: d1_mini
+
+<<: !include common/common.yaml
+<<: !include common/sensors.yaml
+<<: !include common/logger.yaml
+<<: !include common/binary_sensors.yaml
+
+i2c:
+
+sensor:
+  - platform: bme280
+    temperature:
+      name: ${device} Temperature
+      oversampling: 8x
+    pressure:
+      name: ${device} Pressure
+      oversampling: 8x
+    humidity:
+      name: ${device} Humidity
+    address: 0x76
+    update_interval: 20s
+    iir_filter: 4x

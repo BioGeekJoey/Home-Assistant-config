@@ -1,8 +1,8 @@
 ---
 substitutions:
   device: esp32oled0001
-  name: Test oled
-  description: 
+  name: test oled
+  description: wifi kit 32 oled test
   reboot_timeout: 14d
   update_interval: 10min
 

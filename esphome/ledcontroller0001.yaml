@@ -1,6 +1,6 @@
 ---
 substitutions:
-  device: filamentsensor0001
+  device: ledcontroller0001
   name: bureau verlichting
   description: ledstrip onder monitor bureau, zolder
   reboot_timeout: 14d
