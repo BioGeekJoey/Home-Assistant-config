@@ -66,3 +66,15 @@
     entity_id: input_text.github_actions_result
     data_template:
       value: '{{trigger.json}}'
+- id: '1576121344243'
+  alias: OpenUV data update; elk half uur; van zonsopkomst tot zonsondergang
+  description: ''
+  trigger:
+  - minutes: /30
+    platform: time_pattern
+  condition:
+  - after: sunrise
+    before: sunset
+    condition: sun
+  action:
+  - service: openuv.update_data
