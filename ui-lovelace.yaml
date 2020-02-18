@@ -5,5 +5,5 @@ views:
   - !include lovelace/views/downstairs.yaml
   - !include lovelace/views/floorfirst.yaml
   - !include lovelace/views/attic.yaml
-  - !include locelace/views/system.yaml
+  - !include lovelace/views/system.yaml
 
