@@ -25,7 +25,6 @@ tts
 
 # contain personal data potentially #
 html5_push_registrations.conf
-traccar.xml
 ip_bans.yaml
 known_devices.yaml
 secrets.yaml
@@ -46,4 +45,5 @@ lib
 
 # depreciated files kept locally for fallback #
 .travis*
+*.depreciated
 
