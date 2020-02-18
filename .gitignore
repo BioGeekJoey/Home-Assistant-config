@@ -38,7 +38,7 @@ notebooks/
 
 # other #
 hassio-config.code-workspace
-automations/
+automations.yaml
 Dockerfile
 deps
 lib
@@ -46,4 +46,4 @@ lib
 # depreciated files kept locally for fallback #
 .travis*
 *.depreciated
-
+*.backup
