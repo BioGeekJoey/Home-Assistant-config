@@ -1,0 +1,6 @@
+---
+
+binary_sensor:
+  - platform: stookalert
+    province: Gelderland
+
