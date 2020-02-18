@@ -1,0 +1,68 @@
+- id: '1581866696770'
+  name: Zolder standaard
+  entities:
+    light.bureau_verlichting:
+      brightness: 166
+      friendly_name: bureau verlichting
+      hs_color:
+      - 0
+      - 17.6
+      rgb_color:
+      - 255
+      - 210
+      - 210
+      state: 'on'
+      supported_features: 57
+      xy_color:
+      - 0.378
+      - 0.325
+    light.plafond_verlichting:
+      brightness: 140
+      friendly_name: plafond verlichting
+      hs_color:
+      - 0
+      - 17.6
+      rgb_color:
+      - 255
+      - 210
+      - 210
+      state: 'on'
+      supported_features: 57
+      xy_color:
+      - 0.378
+      - 0.325
+- id: '1581906937344'
+  name: Kamer Joël - uit
+  entities:
+    light.bureau_verlichting:
+      friendly_name: bureau verlichting
+      state: 'off'
+      supported_features: 57
+    light.plafond_verlichting:
+      friendly_name: plafond verlichting
+      state: 'off'
+      supported_features: 57
+    light.shelly_shsw_1_227968:
+      cloud_status: connected
+      discovery: CoAP-message
+      friendly_name: spotjes Joël
+      has_firmware_update: true
+      ip_address: 192.168.178.205
+      shelly_id: '227968'
+      shelly_type: Shelly 1
+      state: 'off'
+      supported_features: 0
+      switch: true
+    media_player.home_joel:
+      friendly_name: Home Joël
+      state: 'off'
+      supported_features: 21389
+    switch.shelly_shsw_1_227968_firmware_update:
+      cloud_status: connected
+      discovery: CoAP-message
+      friendly_name: Upgrade firmware spotjes Joël
+      has_firmware_update: true
+      ip_address: 192.168.178.205
+      shelly_id: '227968'
+      shelly_type: Shelly 1
+      state: 'off'
