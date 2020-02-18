@@ -23,16 +23,6 @@
       - light.veranda_garage
       - light.carport_en_co
     service: light.turn_off
-- id: '1570943721479'
-  alias: dagelijks snapschot; volledig hass.io; 03:00
-  description: ''
-  trigger:
-  - at: 03:00:00
-    platform: time
-  condition: []
-  action:
-  - service: hassio.snapshot_full
-  - service: clean_up_snapshots_service.clean_up
 - id: '1571249904897'
   alias: ledstrips standaard; bureau zolder, plafond zolder; conditioneel
   description: ''
