@@ -1,0 +1,6 @@
+---
+input_boolean:
+  vacation:
+    name: vakantie mode
+    initial: off
+    icon: mdi:airplane

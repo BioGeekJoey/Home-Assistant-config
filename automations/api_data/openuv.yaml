@@ -1,6 +1,6 @@
 ---
-- id: '1576121344243'
-  alias: OpenUV data update; elk half uur; van zonsopkomst tot zonsondergang
+- id: "1576121344243"
+  alias: OpenUV data update; elk half uur
   initial_state: true
   trigger:
     platform: time_pattern

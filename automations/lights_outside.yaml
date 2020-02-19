@@ -1,12 +1,12 @@
 ---
-- id: '1561220695968'
-  alias: Verlichting; aan; veranda garage carport; zonsondergang
+- id: "1561220695968"
+  alias: Verlichting; aan; veranda garage carport
   initial_state: true
   trigger:
     platform: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-    below: 3.5
+    below: -3.5
   action:
     service: light.turn_on
     data:
@@ -15,14 +15,14 @@
       - light.carport_en_co
 
 
-- id: '1564754408874'
-  alias: Verlichting; uit; veranda garage carport; zonsopkomst
+- id: "1564754408874"
+  alias: Verlichting; uit; veranda garage carport
   initial_state: true
   trigger:
     platform: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-    above: 3.5
+    above: -3
   action:
     service: light.turn_off
     data:

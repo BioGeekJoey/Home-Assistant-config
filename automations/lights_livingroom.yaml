@@ -1,0 +1,27 @@
+---
+- id: "1582051417329"
+  alias: Verlichting; aan; woonkamer
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+  condition: 
+  action:
+  - service: light.turn_on
+    entity_id: light.trap_woonkamer
+  - delay: "00:35:00"
+  - service: light.turn_on
+    entity_id: light.openhaard
+
+- id: "1582052165679"
+  alias: Verlichting; uit; woonkamer
+  initial_state: true
+  trigger:
+    platform: time
+    at: "22:00:00"
+  action:
+  - service: light.turn_on
+    entity_id: light.openhaard
+  - delay: "00:35:00"
+  - service: light.turn_off
+    entity_id: light.trap_woonkamer

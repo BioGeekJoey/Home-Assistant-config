@@ -1,6 +1,6 @@
 ---
-- id: '1571249904897'
-  alias: ledstrips standaard; bureau zolder, plafond zolder; conditioneel
+- id: "1571249904897"
+  alias: standaard; bureau zolder, plafond zolder
   initial_state: true
   trigger:
   - platform: state
