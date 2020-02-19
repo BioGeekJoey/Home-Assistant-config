@@ -1,0 +1,7 @@
+---
+- id: "1582081753136"
+  alias: github API
+  trigger:
+    platform: webhook
+    webhook_id: github
+  action: []
