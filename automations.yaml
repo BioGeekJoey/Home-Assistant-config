@@ -1,0 +1,19 @@
+- id: '1582098788576'
+  alias: Nieuwe automatisering
+  description: ''
+  trigger:
+  - entity_id: input_boolean.vacation
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - entity_id: automation.verlichting_uit_woonkamer
+    service: automation.turn_on
+- id: '1582099013196'
+  alias: Nieuwe automatisering
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action: []

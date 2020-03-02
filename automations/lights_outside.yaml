@@ -6,7 +6,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-    below: -3.5
+    below: -4
   action:
     service: light.turn_on
     data:

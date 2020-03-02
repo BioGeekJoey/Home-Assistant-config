@@ -1,0 +1,28 @@
+---
+- id: "1582098788576"
+  initial_state: true
+  alias: Vakantie modus; aan
+  trigger:
+  - platform: state
+    entity_id: input_boolean.vacation
+    to: "on"
+  action:
+  - service: automation.turn_on
+    data:
+      entity_id: 
+        - automation.verlichting_aan_woonkamer
+        - automation.verlichting_uit_woonkamer
+
+- id: "1582099013196"
+  initial_state: true
+  alias: Vakantie modus; uit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.vacation
+    to: "off"
+  action:
+  - service: automation.turn_off
+    data: 
+      entity_id: 
+        - automation.verlichting_aan_woonkamer
+        - automation.verlichting_uit_woonkamer
