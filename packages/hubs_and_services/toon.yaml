@@ -17,14 +17,14 @@ sensor:
     port: 10080
     scan_interval: 30
     resources:
-      - gasused
-      - gasusedcnt
+      # - gasused
+      # - gasusedcnt
       # - elecusageflowpulse
-      - elecusagecntpulse
+      # - elecusagecntpulse
       # - elecusageflowlow
-      - elecusagecntlow
+      # - elecusagecntlow
       # - elecusageflowhigh
-      - elecusagecnthigh
+      # - elecusagecnthigh
       # - elecprodflowlow
       # - elecprodcntlow
       # - elecprodflowhigh
@@ -33,15 +33,15 @@ sensor:
       # - elecsolarcnt
       # - heat
 
-  - platform: toon_boilerstatus
-    host: !secret toon
-    port: 10080
-    scan_interval: 30
-    resources:
-      - boilersetpoint
-      - boilerintemp
-      - boilerouttemp
-      # - boilerpressure
-      - boilermodulationlevel
-      - roomtemp
-      - roomtempsetpoint
+  # - platform: toon_boilerstatus
+  #   host: !secret toon
+  #   port: 10080
+  #   scan_interval: 30
+  #   resources:
+  #     - boilersetpoint
+  #     - boilerintemp
+  #     - boilerouttemp
+  #     - boilerpressure
+  #     - boilermodulationlevel
+  #     - roomtemp
+  #     - roomtempsetpoint
