@@ -1,9 +1,0 @@
----
-- id: "1582081753136"
-  initial_state: true
-  alias: github API
-  trigger:
-    platform: webhook
-    webhook_id: github
-  condition: 
-  action: []
