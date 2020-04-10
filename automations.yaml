@@ -23,7 +23,6 @@
   - delay: "00:40:00"
   - service: light.turn_on
     entity_id: light.openhaard
-
 - id: "1582052165679"
   alias: Verlichting; uit; woonkamer
   initial_state: false
@@ -50,8 +49,6 @@
       entity_id:
       - light.veranda_garage
       - light.carport_en_co
-
-
 - id: "1564754408874"
   alias: Verlichting; uit; veranda garage carport
   initial_state: true
@@ -114,7 +111,6 @@
       entity_id: 
         - automation.verlichting_aan_woonkamer
         - automation.verlichting_uit_woonkamer
-
 - id: "1582099013196"
   initial_state: true
   alias: Vakantie modus; uit
