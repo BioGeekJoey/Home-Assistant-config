@@ -25,7 +25,8 @@
         "**/deps/**": true,
         ".Trash-0/**": true
     },
-    "terminal.integrated.copyOnSelection": true,
+    // "terminal.integrated.copyOnSelection": true,
+    "yaml.format.enable": true,
     "yaml.customTags": [
         "!env_var scalar",
         "!include_dir_list scalar",
@@ -35,7 +36,7 @@
         "!include scalar",
         "!secret scalar"
     ],
-    "yaml.format.enable": true,
+    
     "[yaml]": {
         "editor.autoIndent": "full",
         "editor.insertSpaces": true,
