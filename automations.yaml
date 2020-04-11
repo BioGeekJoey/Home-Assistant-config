@@ -1,4 +1,3 @@
----
 - id: '1582098788576'
   alias: Nieuwe automatisering
   description: ''
@@ -10,38 +9,38 @@
   action:
   - entity_id: automation.verlichting_uit_woonkamer
     service: automation.turn_on
-- id: "1582051417329"
+- id: '1582051417329'
   alias: Verlichting; aan; woonkamer
   initial_state: false
   trigger:
     platform: sun
     event: sunset
-  condition: 
+  condition:
   action:
   - service: light.turn_on
     entity_id: light.trap_woonkamer
-  - delay: "00:40:00"
+  - delay: 00:40:00
   - service: light.turn_on
     entity_id: light.openhaard
-- id: "1582052165679"
+- id: '1582052165679'
   alias: Verlichting; uit; woonkamer
   initial_state: false
   trigger:
     platform: time
-    at: "22:30:00"
+    at: '22:30:00'
   action:
   - service: light.turn_on
     data:
       entity_id:
-        - light.openhaard
-        - light.trap_woonkamer
-- id: "1561220695968"
+      - light.openhaard
+      - light.trap_woonkamer
+- id: '1561220695968'
   alias: Verlichting; aan; veranda garage carport
   initial_state: true
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    value_template: '{{ state_attr(''sun.sun'', ''elevation'') }}'
     below: -4
   action:
     service: light.turn_on
@@ -49,13 +48,13 @@
       entity_id:
       - light.veranda_garage
       - light.carport_en_co
-- id: "1564754408874"
+- id: '1564754408874'
   alias: Verlichting; uit; veranda garage carport
   initial_state: true
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    value_template: '{{ state_attr(''sun.sun'', ''elevation'') }}'
     above: -3
   action:
     service: light.turn_off
@@ -63,13 +62,13 @@
       entity_id:
       - light.veranda_garage
       - light.carport_en_co
-- id: "1571249904897"
+- id: '1571249904897'
   alias: standaard; bureau zolder, plafond zolder
   initial_state: true
   trigger:
   - platform: state
     entity_id: light.bureau_verlichting,light.plafond_verlichting
-    to: "on"
+    to: 'on'
   action:
   - service: light.turn_on
     data_template:
@@ -80,68 +79,74 @@
       - 255
       - 212
       - 212
-- id: "1582057063801"
+- id: '1582057063801'
   alias: backup; weekelijks
   trigger:
-    - platform: time
-      at: "03:00:00"
+  - platform: time
+    at: 03:00:00
   condition:
-    - condition: time
-      weekday:
-        - sun
+  - condition: time
+    weekday:
+    - sun
   action:
-    - service: hassio.snapshot_full
-      data_template:
-        name: Backup {{ now().strftime('%Y-%m-%d') }} HA version {{ states('sensor.current_version') }}
-    - service: notify.mobile_app_oneplus_a6003
-      data_template:
-        title: Snapshot Home Assistant
-        message: >-
-          "Backup gemaakt: Backup {{ now().strftime('%Y-%m-%d') }} running HA version {{ states('sensor.current_version') }}"
-- id: "1582098788576"
+  - service: hassio.snapshot_full
+    data_template:
+      name: Backup {{ now().strftime('%Y-%m-%d') }} HA version {{ states('sensor.current_version')
+        }}
+  - service: notify.mobile_app_oneplus_a6003
+    data_template:
+      title: Snapshot Home Assistant
+      message: '"Backup gemaakt: Backup {{ now().strftime(''%Y-%m-%d'') }} running
+        HA version {{ states(''sensor.current_version'') }}"'
+- id: '1582098788576'
   initial_state: true
   alias: Vakantie modus; aan
   trigger:
   - platform: state
     entity_id: input_boolean.vacation
-    to: "on"
+    to: 'on'
   action:
   - service: automation.turn_on
     data:
-      entity_id: 
-        - automation.verlichting_aan_woonkamer
-        - automation.verlichting_uit_woonkamer
-- id: "1582099013196"
+      entity_id:
+      - automation.verlichting_aan_woonkamer
+      - automation.verlichting_uit_woonkamer
+- id: '1582099013196'
   initial_state: true
   alias: Vakantie modus; uit
   trigger:
   - platform: state
     entity_id: input_boolean.vacation
-    to: "off"
+    to: 'off'
   action:
   - service: automation.turn_off
-    data: 
-      entity_id: 
-        - automation.verlichting_aan_woonkamer
-        - automation.verlichting_uit_woonkamer
-- id: "1576121344243"
+    data:
+      entity_id:
+      - automation.verlichting_aan_woonkamer
+      - automation.verlichting_uit_woonkamer
+- id: '1576121344243'
   alias: OpenUV data update; elk half uur
   initial_state: true
   trigger:
     platform: time_pattern
     minutes: /30
   condition:
-    #prevent exceeding the API's limit by disabling data requests when there is no sun to shine UV upon us
     condition: sun
     after: sunrise
     before: sunset
   action:
     service: openuv.update_data
-- id: "1582081753136"
+- id: '1582081753136'
   initial_state: true
   alias: github API
   trigger:
     platform: webhook
     webhook_id: github
-  condition: 
+  condition:
+  action: []
+- id: '1586604121443'
+  alias: Nieuwe automatisering
+  description: ''
+  trigger: []
+  condition: []
   action: []
