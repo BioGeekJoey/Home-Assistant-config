@@ -35,6 +35,7 @@ secrets.yaml
 # custom_components/ #
 __pycache__/
 notebooks/
+appdaemon/
 
 # other #
 hassio-config.code-workspace
