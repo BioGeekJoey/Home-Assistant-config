@@ -1,5 +1,5 @@
 - id: '1582098788576'
-  alias: Nieuwe automatisering
+  alias: Vakantie modus; aan
   description: ''
   trigger:
   - entity_id: input_boolean.vacation
@@ -156,3 +156,15 @@
   - data: {}
     entity_id: switch.shelly_shsw_1_2276fc
     service: light.turn_off
+- id: '1586960438700'
+  alias: Wasdroger status; script
+  description: ''
+  trigger:
+  - platform: template
+    value_template: states.sensor.shelly_shplg_s_267a4a_current_consumption.state|float
+      >= 2
+  condition: []
+  action:
+  - data: {}
+    entity_id: script.1586959705680
+    service: script.turn_on

@@ -1,0 +1,13 @@
+'1586959705680':
+  alias: Wasdroger status
+  sequence:
+  - data: {}
+    entity_id: input_boolean.wasdroger_status
+    service: input_boolean.turn_on
+  - delay: 00:10:00
+  - condition: template
+    value_template: states.sensor.shelly_shplg_s_267a4a_current_consumption.state|float
+      <= 2
+  - data: {}
+    entity_id: input_boolean.wasdroger_status
+    service: input_boolean.turn_off
