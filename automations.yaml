@@ -37,10 +37,8 @@
 - id: '1561220695968'
   alias: Verlichting; aan; veranda garage carport
   trigger:
-  - below: '-4'
-    entity_id: sun.sun
-    platform: numeric_state
-    value_template: '{{ state_attr(''sun.sun'', ''elevation'') }}'
+  - event: sunset
+    platform: sun
   action:
   - data:
       entity_id:
@@ -52,10 +50,8 @@
 - id: '1564754408874'
   alias: Verlichting; uit; garage carport
   trigger:
-  - above: '-3'
-    entity_id: sun.sun
-    platform: numeric_state
-    value_template: '{{ state_attr(''sun.sun'', ''elevation'') }}'
+  - event: sunrise
+    platform: sun
   action:
   - data:
       entity_id:

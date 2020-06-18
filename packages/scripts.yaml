@@ -1,0 +1,3 @@
+---
+script: !include ../scripts.yaml
+# script: !include_dir_merge_named ../scripts

@@ -1,0 +1,38 @@
+- id: '1592480365718'
+  name: Zolder basis scène
+  entities:
+    light.bureau_verlichting:
+      brightness: 153
+      friendly_name: bureau verlichting
+      hs_color:
+      - 0
+      - 17.255
+      rgb_color:
+      - 255
+      - 210
+      - 210
+      state: 'on'
+      supported_features: 57
+      xy_color:
+      - 0.378
+      - 0.325
+    light.plafond_verlichting:
+      brightness: 153
+      friendly_name: plafond verlichting
+      hs_color:
+      - 0
+      - 17.255
+      rgb_color:
+      - 255
+      - 210
+      - 210
+      state: 'on'
+      supported_features: 57
+      xy_color:
+      - 0.378
+      - 0.325
+    light.shelly_shsw_1_227968:
+      friendly_name: spotjes Joël
+      restored: true
+      state: unavailable
+      supported_features: 0
