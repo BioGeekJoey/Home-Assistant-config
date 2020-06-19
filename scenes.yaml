@@ -6,7 +6,7 @@
       friendly_name: bureau verlichting
       hs_color:
       - 0
-      - 17.255
+      - 17.647
       rgb_color:
       - 255
       - 210
@@ -21,7 +21,7 @@
       friendly_name: plafond verlichting
       hs_color:
       - 0
-      - 17.255
+      - 17.647
       rgb_color:
       - 255
       - 210
@@ -31,8 +31,17 @@
       xy_color:
       - 0.378
       - 0.325
-    light.shelly_shsw_1_227968:
-      friendly_name: spotjes Joël
-      restored: true
-      state: unavailable
-      supported_features: 0
+    switch.shelly_shsw_1_227968:
+      cloud_status: connected
+      friendly_name: spotjes Joel
+      has_firmware_update: true
+      ip_address: 192.168.178.241
+      protocols:
+      - CoAP-msg
+      - poll
+      - mDns
+      - CoAP-discovery
+      shelly_id: '227968'
+      shelly_type: Shelly 1
+      state: 'off'
+      switch: true
