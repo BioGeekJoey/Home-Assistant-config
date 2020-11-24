@@ -11,9 +11,4 @@
   - data: {}
     entity_id: input_boolean.wasdroger_status
     service: input_boolean.turn_off
-'1592524247245':
-  alias: Nieuw script
-  sequence:
-  - data: {}
-    entity_id: light.bureau_verlichting
-    service: light.toggle
+  mode: single

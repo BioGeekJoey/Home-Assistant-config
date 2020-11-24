@@ -164,3 +164,14 @@
   - data: {}
     entity_id: script.1586959705680
     service: script.turn_on
+- id: '1597343863516'
+  alias: Verwijdering oude snapshots
+  description: ''
+  trigger:
+  - at: 03:00:00
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    service: clean_up_snapshots_service.clean_up
+  mode: single
